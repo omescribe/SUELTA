@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="112" fill="#18181B"/>
+  <!-- Outer subtle aura ring -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#8FAF9A" stroke-width="3" stroke-opacity="0.18"/>
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#8FAF9A" stroke-width="2" stroke-opacity="0.25"/>
+  
+  <!-- Stylized Sage Leaf (Hoja de Salvia) -->
+  <path d="M256 90 C150 180 120 330 256 422 C392 330 362 180 256 90 Z" fill="#8FAF9A" />
+  
+  <!-- Leaf inner natural shading/vein -->
+  <path d="M256 90 C190 180 170 300 256 422 C240 340 230 220 256 90 Z" fill="#7D98A1" opacity="0.35"/>
+  
+  <!-- Central spine line -->
+  <path d="M256 110 L256 410" stroke="#18181B" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
+  
+  <!-- Delicate side veins -->
+  <path d="M256 200 C220 180 190 200 175 220" stroke="#18181B" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M256 200 C292 180 322 200 337 220" stroke="#18181B" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M256 270 C220 250 190 270 180 290" stroke="#18181B" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M256 270 C292 250 322 270 332 290" stroke="#18181B" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+  
+  <!-- Soft grounding base seed -->
+  <circle cx="256" cy="432" r="6" fill="#D8C8B8" />
+</svg>

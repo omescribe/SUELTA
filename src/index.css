@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #121212;
+    --bg-secondary-dark: #1C1C1E;
+    --card-dark: #252528;
+    --text-main-dark: #FFFFFF;
+    --text-sec-dark: #B8B8B8;
+    
+    --bg-light: #F7F7F5;
+    --bg-secondary-light: #EEEEEC;
+    --card-light: #FFFFFF;
+    --text-main-light: #1F1F1F;
+    --text-sec-light: #666666;
+    
+    --accent-salvia: #8FAF9A;
+    --accent-blue: #7D98A1;
+    --accent-sand: #D8C8B8;
+    --accent-amber: #E5A962;
+    --accent-terracota: #C47C68;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
+  }
+
+  .font-serif-display {
+    font-family: 'Newsreader', Georgia, serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(143, 175, 154, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(143, 175, 154, 0.4);
+}
+
+/* Safe area padding helper for PWA */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 16px);
+}
