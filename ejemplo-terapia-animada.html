@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Suelta — Secuencia de calma</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; overflow:hidden; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background:#0a1f14;
+    color:#f2ead8;
+    display:flex; align-items:center; justify-content:center;
+  }
+  /* Escenario vertical tipo reel */
+  #escena {
+    position:relative; width:100%; max-width:420px; height:100%;
+    max-height:100vh; overflow:hidden; border-radius:18px;
+    background:
+      radial-gradient(120% 60% at 50% 108%, rgba(232,196,120,.35), transparent 60%),
+      radial-gradient(90% 50% at 50% -10%, rgba(120,200,160,.18), transparent 60%),
+      linear-gradient(#0a1f14 0%, #0e2a1b 45%, #143826 75%, #1d4a32 100%);
+  }
+
+  /* ---- Tela translúcida ondeando ---- */
+  .tela {
+    position:absolute; left:-30%; width:160%; height:60%;
+    background:linear-gradient(100deg, transparent 20%, rgba(240,235,215,.14) 45%, rgba(240,235,215,.05) 60%, transparent 80%);
+    filter:blur(2px);
+    animation:ondear 9s ease-in-out infinite alternate;
+    transform-origin:center;
+  }
+  .tela.t1 { top:12%; animation-duration:11s; }
+  .tela.t2 { top:34%; opacity:.6; animation-duration:13s; animation-delay:-4s; }
+  .tela.t3 { top:58%; opacity:.4; animation-duration:15s; animation-delay:-8s; }
+  @keyframes ondear {
+    0%   { transform:translateY(0) rotate(-4deg) scaleX(1); }
+    50%  { transform:translateY(-3%) rotate(2deg) scaleX(1.06); }
+    100% { transform:translateY(2%) rotate(-1deg) scaleX(.97); }
+  }
+
+  /* ---- Velo de agua / luz inferior ---- */
+  #agua {
+    position:absolute; bottom:0; left:0; right:0; height:26%;
+    background:radial-gradient(80% 100% at 50% 120%, rgba(232,196,120,.45), rgba(232,196,120,.08) 55%, transparent 75%);
+    animation:respirarLuz 7s ease-in-out infinite alternate;
+  }
+  @keyframes respirarLuz { from{opacity:.65; transform:scaleY(1)} to{opacity:1; transform:scaleY(1.12)} }
+
+  /* ---- Partículas doradas ---- */
+  .mota {
+    position:absolute; border-radius:50%;
+    background:radial-gradient(circle, rgba(255,232,170,.95), rgba(255,232,170,0) 70%);
+    animation:flotar linear infinite;
+    opacity:0;
+  }
+  @keyframes flotar {
+    0%   { transform:translateY(20px) translateX(0); opacity:0; }
+    12%  { opacity:.9; }
+    85%  { opacity:.5; }
+    100% { transform:translateY(-46vh) translateX(24px); opacity:0; }
+  }
+
+  /* ---- Mariposas luminosas (SVG) ---- */
+  .mariposa {
+    position:absolute; width:44px; height:44px; opacity:0;
+    filter:drop-shadow(0 0 8px rgba(255,225,150,.9));
+    animation:volar 14s ease-in-out infinite;
+  }
+  .mariposa svg { width:100%; height:100%; animation:aletear .5s ease-in-out infinite alternate; transform-origin:center; }
+  @keyframes aletear { from{transform:scaleX(1)} to{transform:scaleX(.45)} }
+  @keyframes volar {
+    0%   { transform:translate(0,0) rotate(8deg); opacity:0; }
+    10%  { opacity:.95; }
+    50%  { transform:translate(6vw,-18vh) rotate(-6deg); }
+    90%  { opacity:.6; }
+    100% { transform:translate(-4vw,-40vh) rotate(5deg); opacity:0; }
+  }
+
+  /* ---- Frases ---- */
+  #frase {
+    position:absolute; left:8%; right:8%; top:44%;
+    text-align:center; font-size:clamp(1.35rem, 6vw, 1.8rem);
+    line-height:1.5; letter-spacing:.04em;
+    text-shadow:0 0 18px rgba(232,196,120,.35), 0 2px 6px rgba(0,0,0,.55);
+    opacity:0; transform:translateY(14px);
+    transition:opacity 1.6s ease, transform 1.6s ease;
+  }
+  #frase.visible { opacity:1; transform:translateY(0); }
+  #frase .sub {
+    display:block; margin-top:.6em; font-size:.62em; font-style:italic; opacity:.8;
+  }
+
+  /* ---- Indicador de respiración ---- */
+  #respiro {
+    position:absolute; left:50%; bottom:12%; transform:translateX(-50%);
+    width:120px; height:120px; border-radius:50%;
+    border:1.5px solid rgba(255,232,170,.55);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; gap:.3em;
+    opacity:0; transition:opacity 1.5s ease;
+    box-shadow:0 0 30px rgba(232,196,120,.25), inset 0 0 26px rgba(232,196,120,.12);
+  }
+  #respiro.visible { opacity:1; }
+  #respiro .aro { position:absolute; inset:-14px; border-radius:50%; border:1px solid rgba(255,232,170,.25); animation:aura 6s ease-in-out infinite; }
+  @keyframes aura { 0%,100%{transform:scale(.96); opacity:.4} 50%{transform:scale(1.08); opacity:.9} }
+
+  /* ---- Controles ---- */
+  #controles {
+    position:absolute; top:14px; right:14px; display:flex; gap:8px; z-index:10;
+  }
+  #controles button {
+    background:rgba(240,235,215,.12); color:#f2ead8; border:1px solid rgba(240,235,215,.25);
+    border-radius:999px; padding:8px 14px; font-family:inherit; font-size:.8rem;
+    cursor:pointer; backdrop-filter:blur(4px);
+  }
+  #progreso { position:absolute; bottom:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg, rgba(232,196,120,.2), #e8c478); z-index:10; }
+</style>
+</head>
+<body>
+<div id="escena">
+  <div class="tela t1"></div><div class="tela t2"></div><div class="tela t3"></div>
+  <div id="agua"></div>
+  <div id="frase"></div>
+  <div id="respiro"><span class="aro"></span><span id="fase">Inhala</span><span id="cuenta">4</span></div>
+  <div id="controles">
+    <button id="btnPausar">Pausar</button>
+    <button id="btnReiniciar">Reiniciar</button>
+  </div>
+  <div id="progreso"></div>
+</div>
+
+<script>
+/* ---------- Frases de la secuencia (duración total ≈ 55 s) ---------- */
+const SECUENCIA = [
+  { t:0,   txt:'Haz una pausa',                 sub:'nada más por un momento' },
+  { t:6,   txt:'Suelta la tensión',             sub:'de tus hombros, de tu mandíbula' },
+  { t:12,  txt:'No tienes que sostenerlo todo ahora', sub:'' },
+  { t:19,  txt:'Respira',                       sub:'sigue el círculo' },
+  { t:44,  txt:'Estás en calma',                sub:'esto también pasará' },
+];
+
+const DURACION_TOTAL = 55000; // ms
+const fraseEl = document.getElementById('frase');
+const respiroEl = document.getElementById('respiro');
+const faseEl = document.getElementById('fase');
+const cuentaEl = document.getElementById('cuenta');
+const progreso = document.getElementById('progreso');
+const btnPausar = document.getElementById('btnPausar');
+
+let inicio = null, pausadoEn = 0, pausado = false, rafId = null;
+
+/* ---------- Partículas y mariposas ---------- */
+const escena = document.getElementById('escena');
+for (let i=0;i<26;i++){
+  const m = document.createElement('div'); m.className='mota';
+  const s = 3+Math.random()*7;
+  m.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;bottom:${Math.random()*30}%;
+    animation-duration:${7+Math.random()*9}s;animation-delay:${-Math.random()*10}s`;
+  escena.appendChild(m);
+}
+const svgMariposa = `<svg viewBox="0 0 40 40" fill="rgba(255,232,170,.9)">
+  <ellipse cx="12" cy="14" rx="9" ry="11"/><ellipse cx="28" cy="14" rx="9" ry="11"/>
+  <ellipse cx="14" cy="27" rx="6" ry="7" opacity=".7"/><ellipse cx="26" cy="27" rx="6" ry="7" opacity=".7"/>
+  <rect x="19" y="8" width="2.4" height="24" rx="1.2" fill="rgba(120,80,30,.9)"/></svg>`;
+[[70,18,0],[78,40,-6],[18,30,-3]].forEach(([x,y,d],i)=>{
+  const b = document.createElement('div'); b.className='mariposa';
+  b.style.left=x+'%'; b.style.bottom=y+'%'; b.innerHTML=svgMariposa;
+  b.style.animationDelay=(d+i*3)+'s';
+  escena.appendChild(b);
+});
+
+/* ---------- Reproducción con Date.now() (a prueba de segundo plano) ---------- */
+function mostrarFrase(elapsed){
+  // encuentra la última frase cuyo tiempo ya llegó
+  let actual = null;
+  for (const f of SECUENCIA) if (elapsed >= f.t*1000) actual = f;
+  const html = actual ? actual.txt + (actual.sub?`<span class="sub">${actual.sub}</span>`:'') : '';
+  if (fraseEl.dataset.actual !== String(actual?.t)){
+    fraseEl.dataset.actual = String(actual?.t);
+    fraseEl.classList.remove('visible');
+    setTimeout(()=>{ fraseEl.innerHTML = html; fraseEl.classList.add('visible'); }, 600);
+  }
+}
+
+/* Respiración 4-4-6 guiada durante la fase "Respira" (19s→44s) */
+const FASES = [ ['Inhala',4000], ['Sostén',4000], ['Exhala',6000] ];
+function actualizarRespiro(elapsed){
+  const tRespiro = elapsed - 19000;
+  const activo = tRespiro >= 0 && tRespiro <= 25000;
+  respiroEl.classList.toggle('visible', activo);
+  if (!activo) return;
+  const ciclo = 14000;
+  let t = tRespiro % ciclo;
+  for (const [nombre,dur] of FASES){
+    if (t < dur){
+      faseEl.textContent = nombre;
+      cuentaEl.textContent = Math.ceil((dur - t)/1000);
+      // el aro crece al inhalar, se mantiene, se contrae al exhalar
+      const p = t/dur;
+      const escala = nombre==='Inhala' ? .8+.35*p : nombre==='Sostén' ? 1.15 : 1.15-.35*p;
+      respiroEl.style.transform = `translateX(-50%) scale(${escala})`;
+      return;
+    }
+    t -= dur;
+  }
+}
+
+function tick(){
+  const elapsed = Date.now() - inicio;
+  progreso.style.width = Math.min(100, elapsed/DURACION_TOTAL*100) + '%';
+  mostrarFrase(elapsed);
+  actualizarRespiro(elapsed);
+  if (elapsed < DURACION_TOTAL){ rafId = requestAnimationFrame(tick); }
+  else {
+    fraseEl.classList.remove('visible');
+    setTimeout(()=> iniciar(), 2500); // reinicio suave en loop
+  }
+}
+
+function iniciar(){
+  inicio = Date.now(); rafId = requestAnimationFrame(tick);
+}
+btnPausar.onclick = () => {
+  if (!pausado){ cancelAnimationFrame(rafId); pausadoEn = Date.now() - inicio; pausado = true; btnPausar.textContent='Continuar'; }
+  else { inicio = Date.now() - pausadoEn; pausado = false; btnPausar.textContent='Pausar'; rafId = requestAnimationFrame(tick); }
+};
+document.getElementById('btnReiniciar').onclick = () => { cancelAnimationFrame(rafId); fraseEl.dataset.actual=''; iniciar(); btnPausar.textContent='Pausar'; pausado=false; };
+
+iniciar();
+</script>
+</body>
+</html>

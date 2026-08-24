@@ -1,0 +1,6 @@
+{
+  "name": "SUELTA - Refugio Emocional",
+  "description": "Aplicación de autorregulación y liberación emocional PWA. Respira, escribe y suelta tus cargas con prácticas somáticas.",
+  "requestFramePermissions": ["notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
