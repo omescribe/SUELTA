@@ -50,16 +50,16 @@ export const InstallBanner: React.FC = () => {
   if (isInstalled) return null;
 
   return (
-    <div id="installPwaContainer" className="p-4 bg-[#1C1C1E] border border-[#8FAF9A]/30 rounded-2xl flex flex-col gap-3 shadow-md">
+    <div id="installPwaContainer" className="p-4 bg-white dark:bg-[#1F2E33] border border-[#5E8B7E]/30 rounded-2xl flex flex-col gap-3 shadow-md">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-[#8FAF9A]/20 flex items-center justify-center text-[#8FAF9A] flex-shrink-0">
+        <div className="w-10 h-10 rounded-xl bg-[#5E8B7E]/15 flex items-center justify-center text-[#5E8B7E] flex-shrink-0">
           <Smartphone className="w-5 h-5" />
         </div>
         <div className="flex-1">
-          <p className="text-xs font-medium text-white/90">
+          <p className="text-xs font-medium text-[#2F3E46] dark:text-white/90">
             Acceso rápido, privado y 100% offline
           </p>
-          <p className="text-[11px] text-white/50">
+          <p className="text-[11px] text-[#5A6D75] dark:text-white/50">
             Puedes abrir SUELTA en cualquier momento sin conexión.
           </p>
         </div>
@@ -68,7 +68,7 @@ export const InstallBanner: React.FC = () => {
       <button
         id="installAppBtn"
         onClick={handleInstallClick}
-        className="w-full h-12 bg-[#8FAF9A] hover:bg-[#7ea08b] text-[#121212] font-semibold text-xs rounded-xl transition-all flex items-center justify-center gap-2 shadow-md active:scale-98"
+        className="w-full h-12 bg-[#5E8B7E] hover:bg-[#4D7A6D] text-white font-semibold text-xs rounded-xl transition-all flex items-center justify-center gap-2 shadow-md active:scale-98"
       >
         <Download className="w-4 h-4" />
         <span>Guarda esta APP en tu pantalla de inicio</span>

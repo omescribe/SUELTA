@@ -98,44 +98,65 @@ class MusicManager {
         document.body.appendChild(el);
       }
       el.volume = 0.3; // Default 30% volume
+
+      // Native audio event binding for automatic state synchronization
+      el.onplay = () => {
+        this.isPlaying = true;
+        this.notify();
+      };
+      el.onpause = () => {
+        this.isPlaying = false;
+        this.notify();
+      };
+      el.onended = () => {
+        this.isPlaying = false;
+        this.notify();
+      };
+
       this.audioElement = el;
     }
     return this.audioElement;
   }
 
   public getIsPlaying(): boolean {
-    return this.isPlaying;
+    const el = this.getAudioElement();
+    return el ? !el.paused : this.isPlaying;
   }
 
   public toggle(): boolean {
     const el = this.getAudioElement();
     if (!el) return false;
 
-    // Also prime audio context on user action
+    // Prime AudioContext on user action
     initAudioContext();
 
-    if (this.isPlaying) {
+    if (!el.paused) {
       el.pause();
       this.isPlaying = false;
+      this.notify();
     } else {
       el.volume = 0.3;
-      el.play().then(() => {
-        this.isPlaying = true;
-        this.notify();
-      }).catch((err) => {
-        console.warn('Audio playback prevented:', err);
-        this.isPlaying = false;
-        this.notify();
-      });
-      return true;
+      el.muted = false;
+      const playPromise = el.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            this.isPlaying = true;
+            this.notify();
+          })
+          .catch((err) => {
+            console.warn('Audio playback prevented:', err);
+            this.isPlaying = false;
+            this.notify();
+          });
+      }
     }
-    this.notify();
-    return this.isPlaying;
+    return !el.paused;
   }
 
   public pause() {
     const el = this.getAudioElement();
-    if (el && this.isPlaying) {
+    if (el && !el.paused) {
       el.pause();
       this.isPlaying = false;
       this.notify();
@@ -144,14 +165,16 @@ class MusicManager {
 
   public subscribe(listener: (playing: boolean) => void): () => void {
     this.listeners.add(listener);
-    listener(this.isPlaying);
+    const el = this.getAudioElement();
+    listener(el ? !el.paused : this.isPlaying);
     return () => {
       this.listeners.delete(listener);
     };
   }
 
   private notify() {
-    this.listeners.forEach((fn) => fn(this.isPlaying));
+    const currentStatus = this.getIsPlaying();
+    this.listeners.forEach((fn) => fn(currentStatus));
   }
 }
 

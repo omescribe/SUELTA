@@ -207,49 +207,49 @@ export const BreathingWaveDisplay: React.FC<BreathingWaveDisplayProps> = ({
         <div
           className={`flex items-center gap-1.5 transition-all duration-300 ${
             phase === 'inhale'
-              ? 'text-[#E5A962] font-semibold scale-105'
-              : 'text-white/40'
+              ? 'text-[#5E8B7E] font-semibold scale-105'
+              : 'text-[#2F3E46]/50 dark:text-white/40'
           }`}
         >
           <span
             className={`w-2 h-2 rounded-full transition-all ${
-              phase === 'inhale' ? 'bg-[#E5A962] shadow-[0_0_8px_#E5A962]' : 'bg-white/20'
+              phase === 'inhale' ? 'bg-[#5E8B7E] shadow-[0_0_8px_#5E8B7E]' : 'bg-[#2F3E46]/20 dark:bg-white/20'
             }`}
           />
           <span>Inhala</span>
         </div>
 
-        <span className="text-white/20">•</span>
+        <span className="text-[#2F3E46]/20 dark:text-white/20">•</span>
 
         {/* Mantén */}
         <div
           className={`flex items-center gap-1.5 transition-all duration-300 ${
             phase === 'hold'
-              ? 'text-[#E5A962] font-semibold scale-105'
-              : 'text-white/40'
+              ? 'text-[#5E8B7E] font-semibold scale-105'
+              : 'text-[#2F3E46]/50 dark:text-white/40'
           }`}
         >
           <span
             className={`w-2 h-2 rounded-full transition-all ${
-              phase === 'hold' ? 'bg-[#E5A962] shadow-[0_0_8px_#E5A962]' : 'bg-white/20'
+              phase === 'hold' ? 'bg-[#5E8B7E] shadow-[0_0_8px_#5E8B7E]' : 'bg-[#2F3E46]/20 dark:bg-white/20'
             }`}
           />
           <span>Mantén</span>
         </div>
 
-        <span className="text-white/20">•</span>
+        <span className="text-[#2F3E46]/20 dark:text-white/20">•</span>
 
         {/* Exhala */}
         <div
           className={`flex items-center gap-1.5 transition-all duration-300 ${
             phase === 'exhale'
-              ? 'text-[#E5A962] font-semibold scale-105'
-              : 'text-white/40'
+              ? 'text-[#5E8B7E] font-semibold scale-105'
+              : 'text-[#2F3E46]/50 dark:text-white/40'
           }`}
         >
           <span
             className={`w-2 h-2 rounded-full transition-all ${
-              phase === 'exhale' ? 'bg-[#E5A962] shadow-[0_0_8px_#E5A962]' : 'bg-white/20'
+              phase === 'exhale' ? 'bg-[#5E8B7E] shadow-[0_0_8px_#5E8B7E]' : 'bg-[#2F3E46]/20 dark:bg-white/20'
             }`}
           />
           <span>Exhala</span>
@@ -257,10 +257,10 @@ export const BreathingWaveDisplay: React.FC<BreathingWaveDisplayProps> = ({
       </div>
 
       {/* Badge: Ciclo X de Y */}
-      <div className="flex items-center gap-1.5 bg-[#1C1C1E] border border-white/10 px-3.5 py-1.5 rounded-full text-xs text-white/70 shadow-sm">
-        <Sparkles className="w-3.5 h-3.5 text-[#E5A962]" />
+      <div className="flex items-center gap-1.5 bg-[#5E8B7E]/10 dark:bg-[#1F2E33] border border-[#5E8B7E]/20 dark:border-white/10 px-3.5 py-1.5 rounded-full text-xs text-[#2F3E46]/80 dark:text-white/70 shadow-sm">
+        <Sparkles className="w-3.5 h-3.5 text-[#5E8B7E]" />
         <span>
-          Ciclo <strong className="text-white font-semibold">{currentCycle}</strong> de {totalCycles}
+          Ciclo <strong className="text-[#5E8B7E] dark:text-white font-semibold">{currentCycle}</strong> de {totalCycles}
         </span>
       </div>
     </div>

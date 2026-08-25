@@ -92,21 +92,21 @@ export const HomeView: React.FC<HomeViewProps> = ({ onStartLiberation, onGoToBre
     >
       {/* Hero Welcome with Sage Leaf Emblem */}
       <div className="text-center pt-2 space-y-3">
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#1C1C1E] border border-[#8FAF9A]/40 shadow-inner">
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#5E8B7E]/15 border border-[#5E8B7E]/30 shadow-sm">
           <svg className="w-8 h-8" viewBox="0 0 100 100" fill="none">
-            <path d="M50 15 C30 35 25 65 50 85 C75 65 70 35 50 15 Z" fill="#8FAF9A" />
-            <path d="M50 18 L50 82" stroke="#121212" strokeWidth="3" strokeLinecap="round" />
-            <path d="M50 38 C40 33 34 38 30 43" stroke="#121212" strokeWidth="2.2" strokeLinecap="round" />
-            <path d="M50 38 C60 33 66 38 70 43" stroke="#121212" strokeWidth="2.2" strokeLinecap="round" />
-            <path d="M50 56 C40 51 36 55 33 60" stroke="#121212" strokeWidth="2.2" strokeLinecap="round" />
-            <path d="M50 56 C60 51 64 55 67 60" stroke="#121212" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M50 15 C30 35 25 65 50 85 C75 65 70 35 50 15 Z" fill="#5E8B7E" />
+            <path d="M50 18 L50 82" stroke="#162225" strokeWidth="3" strokeLinecap="round" />
+            <path d="M50 38 C40 33 34 38 30 43" stroke="#162225" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M50 38 C60 33 66 38 70 43" stroke="#162225" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M50 56 C40 51 36 55 33 60" stroke="#162225" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M50 56 C60 51 64 55 67 60" stroke="#162225" strokeWidth="2.2" strokeLinecap="round" />
           </svg>
         </div>
 
-        <h1 className="text-2xl sm:text-3xl font-serif-display font-medium text-white tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-serif-display font-medium text-[#2F3E46] dark:text-white tracking-tight">
           Inhala profundamente
         </h1>
-        <p className="text-xs sm:text-sm text-white/60 max-w-xs mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm text-[#5A6D75] dark:text-white/60 max-w-xs mx-auto leading-relaxed">
           Este espacio es para ti. Unos minutos para recuperar tu calma y transformar la sobrecarga mental.
         </p>
       </div>
@@ -114,13 +114,13 @@ export const HomeView: React.FC<HomeViewProps> = ({ onStartLiberation, onGoToBre
       {/* PWA Install Banner */}
       <InstallBanner />
 
-      {/* Emotion Check-in Section (Exact match to reference image) */}
+      {/* Emotion Check-in Section */}
       <div className="space-y-3.5">
         <div className="flex items-center justify-between px-1">
-          <h2 className="text-base sm:text-lg font-medium text-white tracking-tight">
+          <h2 className="text-base sm:text-lg font-semibold text-[#2F3E46] dark:text-white tracking-tight">
             ¿Cómo te sientes ahora mismo?
           </h2>
-          <span className="text-xs sm:text-sm text-[#8FAF9A] font-normal">
+          <span className="text-xs sm:text-sm text-[#5E8B7E] font-medium">
             Vamos paso a paso
           </span>
         </div>
@@ -135,8 +135,8 @@ export const HomeView: React.FC<HomeViewProps> = ({ onStartLiberation, onGoToBre
                 onClick={() => handleSelect(item.id)}
                 className={`p-3 sm:p-4 rounded-2xl border text-left transition-all flex items-center gap-2.5 sm:gap-3.5 group relative overflow-hidden min-h-[76px] sm:min-h-[82px] ${
                   isSelected
-                    ? 'bg-[#222225] border-[#8FAF9A] text-white ring-1 ring-[#8FAF9A] shadow-md shadow-[#8FAF9A]/10'
-                    : 'bg-[#131315] border-white/5 text-white hover:bg-[#202023] hover:border-white/10'
+                    ? 'bg-[#5E8B7E]/15 border-[#5E8B7E] text-[#2F3E46] dark:text-white ring-1 ring-[#5E8B7E] shadow-md shadow-[#5E8B7E]/10'
+                    : 'bg-white dark:bg-[#1F2E33] border-[#2F3E46]/10 dark:border-white/10 text-[#2F3E46] dark:text-white hover:bg-[#5E8B7E]/5 dark:hover:bg-[#26373E]'
                 }`}
               >
                 {/* Character Illustration */}
@@ -146,7 +146,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onStartLiberation, onGoToBre
 
                 {/* Emotion Label */}
                 <div className="min-w-0 pr-0.5">
-                  <span className="text-xs sm:text-[14px] font-normal text-white/95 leading-tight block">
+                  <span className="text-xs sm:text-[14px] font-medium text-[#2F3E46] dark:text-white/95 leading-tight block">
                     {item.label}
                   </span>
                 </div>
@@ -160,8 +160,8 @@ export const HomeView: React.FC<HomeViewProps> = ({ onStartLiberation, onGoToBre
           onClick={() => handleSelect('dolor')}
           className={`w-full p-3 sm:p-4 rounded-2xl border text-left transition-all flex items-center gap-3 sm:gap-4 group relative overflow-hidden min-h-[76px] sm:min-h-[82px] ${
             selectedEmotion === 'dolor'
-              ? 'bg-[#222225] border-[#8FAF9A] text-white ring-1 ring-[#8FAF9A] shadow-md shadow-[#8FAF9A]/10'
-              : 'bg-[#131315] border-white/5 text-white hover:bg-[#202023] hover:border-white/10'
+              ? 'bg-[#5E8B7E]/15 border-[#5E8B7E] text-[#2F3E46] dark:text-white ring-1 ring-[#5E8B7E] shadow-md shadow-[#5E8B7E]/10'
+              : 'bg-white dark:bg-[#1F2E33] border-[#2F3E46]/10 dark:border-white/10 text-[#2F3E46] dark:text-white hover:bg-[#5E8B7E]/5 dark:hover:bg-[#26373E]'
           }`}
         >
           {/* Character Illustration */}
@@ -172,25 +172,25 @@ export const HomeView: React.FC<HomeViewProps> = ({ onStartLiberation, onGoToBre
           {/* Emotion Label & Context */}
           <div className="min-w-0 flex-1">
             <div className="flex items-center justify-between">
-              <span className="text-xs sm:text-[14px] font-medium text-white/95 leading-tight block">
+              <span className="text-xs sm:text-[14px] font-medium text-[#2F3E46] dark:text-white/95 leading-tight block">
                 Dolor o malestar
               </span>
               <span className="text-[10px] text-[#E5A962] font-semibold bg-[#E5A962]/15 px-2 py-0.5 rounded-full border border-[#E5A962]/20">
                 Físico
               </span>
             </div>
-            <p className="text-[11px] text-white/50 mt-0.5 leading-tight">
+            <p className="text-[11px] text-[#5A6D75] dark:text-white/50 mt-0.5 leading-tight">
               Tensión corporal, dolor o molestia física
             </p>
           </div>
         </button>
       </div>
 
-      {/* Frases Calmantes Card (Matching reference design) */}
-      <div className="bg-[#1C1C1E] border border-white/5 rounded-3xl p-5 shadow-sm relative overflow-hidden flex items-center justify-between gap-4">
+      {/* Frases Calmantes Card */}
+      <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-5 shadow-sm relative overflow-hidden flex items-center justify-between gap-4">
         <div className="space-y-2.5 z-10">
           <div className="text-[#E5A962] font-serif text-2xl leading-none">“</div>
-          <p className="text-sm font-serif-display font-medium text-white/95 leading-snug max-w-[240px]">
+          <p className="text-sm font-serif-display font-medium text-[#2F3E46] dark:text-white/95 leading-snug max-w-[240px]">
             Todo lo que sueltas, te hace más ligero.
           </p>
           <div className="inline-flex items-center gap-1 bg-[#E5A962]/15 text-[#E5A962] text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full">
@@ -217,15 +217,15 @@ export const HomeView: React.FC<HomeViewProps> = ({ onStartLiberation, onGoToBre
       <div className="space-y-3 pt-1">
         <button
           onClick={() => onStartLiberation(selectedEmotion || undefined)}
-          className="w-full h-14 bg-[#8FAF9A] hover:bg-[#80a38c] text-[#121212] font-semibold text-sm rounded-[18px] transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#8FAF9A]/20 active:scale-[0.98]"
+          className="w-full h-14 bg-[#5E8B7E] hover:bg-[#4D7A6D] text-white font-semibold text-sm rounded-[18px] transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#5E8B7E]/25 active:scale-[0.98]"
         >
           <span>Comenzar mi liberación</span>
-          <ArrowRight className="w-4 h-4 text-[#121212]" />
+          <ArrowRight className="w-4 h-4 text-white" />
         </button>
 
         <button
           onClick={onGoToBreathing}
-          className="w-full h-12 bg-transparent hover:bg-white/5 text-white/70 hover:text-white font-medium text-xs rounded-[18px] border border-white/10 transition-all flex items-center justify-center gap-2"
+          className="w-full h-12 bg-transparent hover:bg-[#5E8B7E]/10 text-[#2F3E46]/80 dark:text-white/70 hover:text-[#5E8B7E] dark:hover:text-white font-medium text-xs rounded-[18px] border border-[#2F3E46]/15 dark:border-white/10 transition-all flex items-center justify-center gap-2"
         >
           <span>Hacer pausa de respiración guiada primero</span>
         </button>

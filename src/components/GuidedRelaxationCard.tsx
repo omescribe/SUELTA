@@ -146,7 +146,7 @@ export const GuidedRelaxationCard: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#1C1C1E] border border-white/5 rounded-3xl p-5 shadow-sm space-y-4">
+    <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-5 shadow-sm space-y-4">
       {/* Estilos CSS Scoped para animaciones del canvas */}
       <style>{`
         @keyframes terOndear {
@@ -184,14 +184,14 @@ export const GuidedRelaxationCard: React.FC = () => {
       {/* Header del Componente */}
       <div className="flex items-center justify-between px-1">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-[#E5A962]/20 text-[#E5A962] flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-[#5E8B7E]/15 text-[#5E8B7E] flex items-center justify-center">
             <Sparkles className="w-4 h-4" />
           </div>
           <div>
-            <h2 className="text-sm font-semibold text-white tracking-tight">
+            <h2 className="text-sm font-semibold text-[#2F3E46] dark:text-white tracking-tight">
               Relajación Guiada
             </h2>
-            <p className="text-[11px] text-white/60">
+            <p className="text-[11px] text-[#5A6D75] dark:text-white/60">
               Secuencia interactiva de calma y reconexión
             </p>
           </div>

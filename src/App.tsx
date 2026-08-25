@@ -39,9 +39,11 @@ export default function App() {
   const applyTheme = (newTheme: 'dark' | 'light') => {
     if (newTheme === 'light') {
       document.body.classList.add('light-mode');
+      document.body.classList.remove('dark');
       document.documentElement.classList.remove('dark');
     } else {
       document.body.classList.remove('light-mode');
+      document.body.classList.add('dark');
       document.documentElement.classList.add('dark');
     }
   };
@@ -70,7 +72,7 @@ export default function App() {
 
   return (
     <div className={`min-h-screen flex flex-col justify-between transition-colors duration-300 ${
-      theme === 'dark' ? 'bg-[#121212] text-white' : 'bg-[#F7F7F5] text-[#1F1F1F]'
+      theme === 'dark' ? 'bg-[#162225] text-[#F1F5F4]' : 'bg-[#F1F5F4] text-[#2F3E46]'
     }`}>
       {/* Header with Guide Modal button and Theme toggle */}
       <Header

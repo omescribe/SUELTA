@@ -1,22 +1,38 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
-    --bg-dark: #121212;
-    --bg-secondary-dark: #1C1C1E;
-    --card-dark: #252528;
-    --text-main-dark: #FFFFFF;
-    --text-sec-dark: #B8B8B8;
-    
-    --bg-light: #F7F7F5;
-    --bg-secondary-light: #EEEEEC;
+    /* Paleta Inspirada en la Referencia Mindora */
+    --color-sage: #5E8B7E;
+    --color-sage-hover: #4D7A6D;
+    --color-soft-blue: #A7C7E7;
+    --color-slate-blue: #2F3E46;
+    --color-offwhite: #F1F5F4;
+    --color-soft-pink: #E8AEB7;
+
+    /* Modo Claro (Aire + Calma + Naturaleza Suave) */
+    --bg-light: #F1F5F4;
+    --bg-secondary-light: #E4ECE9;
     --card-light: #FFFFFF;
-    --text-main-light: #1F1F1F;
-    --text-sec-light: #666666;
+    --border-light: rgba(47, 62, 70, 0.08);
+    --text-main-light: #2F3E46;
+    --text-sec-light: #5A6D75;
     
-    --accent-salvia: #8FAF9A;
-    --accent-blue: #7D98A1;
-    --accent-sand: #D8C8B8;
+    /* Modo Oscuro (Profundo + Acogedor + Pizarra Sereno) */
+    --bg-dark: #162225;
+    --bg-secondary-dark: #1F2E33;
+    --card-dark: #26373E;
+    --border-dark: rgba(167, 199, 231, 0.12);
+    --text-main-dark: #F1F5F4;
+    --text-sec-dark: #A3B5BD;
+    
+    /* Acentos */
+    --accent-salvia: #5E8B7E;
+    --accent-blue: #A7C7E7;
+    --accent-slate: #2F3E46;
+    --accent-pink: #E8AEB7;
     --accent-amber: #E5A962;
     --accent-terracota: #C47C68;
   }
@@ -28,6 +44,14 @@
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     overscroll-behavior-y: none;
+    background-color: var(--bg-dark);
+    color: var(--text-main-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-main-light);
   }
 
   .font-serif-display {

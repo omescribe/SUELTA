@@ -131,10 +131,10 @@ export const BreathingView: React.FC<{ onCompleteSession?: () => void }> = ({ on
     >
       {/* Title */}
       <div className="space-y-2 pt-1 text-center flex flex-col items-center">
-        <h1 className="text-2xl font-serif-display font-medium text-white tracking-tight">
+        <h1 className="text-2xl font-serif-display font-medium text-[#2F3E46] dark:text-white tracking-tight">
           Respiración Guiada Consciente
         </h1>
-        <p className="text-xs text-white/60 max-w-xs mx-auto leading-relaxed">
+        <p className="text-xs text-[#5A6D75] dark:text-white/60 max-w-xs mx-auto leading-relaxed">
           Disminuye el ritmo físico y mental activando tu sistema nervioso parasimpático.
         </p>
         <div className="pt-1">
@@ -145,12 +145,12 @@ export const BreathingView: React.FC<{ onCompleteSession?: () => void }> = ({ on
       {!isActive && !isCompleted ? (
         // STATE 1: SELECTION & GUIDANCE (Does not start automatically!)
         <div className="space-y-4">
-          <div className="bg-[#1C1C1E] border border-white/5 rounded-3xl p-5 space-y-3 shadow-sm text-center">
-            <div className="w-12 h-12 rounded-2xl bg-[#8FAF9A]/20 text-[#8FAF9A] mx-auto flex items-center justify-center">
+          <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-5 space-y-3 shadow-sm text-center">
+            <div className="w-12 h-12 rounded-2xl bg-[#5E8B7E]/15 text-[#5E8B7E] mx-auto flex items-center justify-center">
               <Wind className="w-6 h-6" />
             </div>
-            <h2 className="text-sm font-semibold text-white">Instrucciones antes de comenzar</h2>
-            <p className="text-xs text-white/70 leading-relaxed max-w-xs mx-auto">
+            <h2 className="text-sm font-semibold text-[#2F3E46] dark:text-white">Instrucciones antes de comenzar</h2>
+            <p className="text-xs text-[#5A6D75] dark:text-white/70 leading-relaxed max-w-xs mx-auto">
               Encuentra una postura cómoda con la espalda recta y hombros relajados. Cuando estés listo, toca uno de los botones abajo para iniciar el ciclo guiado.
             </p>
           </div>
@@ -158,20 +158,20 @@ export const BreathingView: React.FC<{ onCompleteSession?: () => void }> = ({ on
           {/* Practice Options */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {/* 4-4-6 Suave */}
-            <div className="bg-[#1C1C1E] border border-white/5 rounded-3xl p-5 flex flex-col justify-between gap-4">
+            <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-5 flex flex-col justify-between gap-4 shadow-sm">
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <strong className="text-sm text-white font-semibold">Respiración 4-4-6</strong>
-                  <span className="text-[10px] text-[#8FAF9A] bg-[#8FAF9A]/15 px-2 py-0.5 rounded-full font-medium">Suave</span>
+                  <strong className="text-sm text-[#2F3E46] dark:text-white font-semibold">Respiración 4-4-6</strong>
+                  <span className="text-[10px] text-[#5E8B7E] bg-[#5E8B7E]/15 px-2 py-0.5 rounded-full font-semibold">Suave</span>
                 </div>
-                <p className="text-xs text-white/60">
+                <p className="text-xs text-[#5A6D75] dark:text-white/60">
                   Inhala 4s • Sostén 4s • Exhala 6s (3 ciclos). Ideal para iniciar y soltar tensión diaria.
                 </p>
               </div>
 
               <button
                 onClick={() => startBreathing('4-4-6')}
-                className="w-full h-12 bg-[#8FAF9A] hover:bg-[#80a38c] text-[#121212] font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
+                className="w-full h-12 bg-[#5E8B7E] hover:bg-[#4D7A6D] text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
               >
                 <Play className="w-4 h-4 fill-current" />
                 <span>Respiración 446 suave</span>
@@ -179,20 +179,20 @@ export const BreathingView: React.FC<{ onCompleteSession?: () => void }> = ({ on
             </div>
 
             {/* 4-7-8 Avanzado */}
-            <div className="bg-[#1C1C1E] border border-white/5 rounded-3xl p-5 flex flex-col justify-between gap-4">
+            <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-5 flex flex-col justify-between gap-4 shadow-sm">
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <strong className="text-sm text-white font-semibold">Respiración 4-7-8</strong>
-                  <span className="text-[10px] text-[#7D98A1] bg-[#7D98A1]/15 px-2 py-0.5 rounded-full font-medium">Avanzado</span>
+                  <strong className="text-sm text-[#2F3E46] dark:text-white font-semibold">Respiración 4-7-8</strong>
+                  <span className="text-[10px] text-[#2F3E46] dark:text-[#A7C7E7] bg-[#A7C7E7]/30 dark:bg-[#A7C7E7]/20 px-2 py-0.5 rounded-full font-semibold">Avanzado</span>
                 </div>
-                <p className="text-xs text-white/60">
+                <p className="text-xs text-[#5A6D75] dark:text-white/60">
                   Inhala 4s • Sostén 7s • Exhala 8s (4 ciclos). Sedante natural del sistema nervioso.
                 </p>
               </div>
 
               <button
                 onClick={() => startBreathing('4-7-8')}
-                className="w-full h-12 bg-[#7D98A1] hover:bg-[#6f8992] text-[#121212] font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
+                className="w-full h-12 bg-[#A7C7E7] hover:bg-[#92B6DA] text-[#2F3E46] font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
               >
                 <Play className="w-4 h-4 fill-current" />
                 <span>Respiración 478 avanzado</span>
@@ -205,7 +205,7 @@ export const BreathingView: React.FC<{ onCompleteSession?: () => void }> = ({ on
         </div>
       ) : isActive ? (
         // STATE 2: ACTIVE GUIDED BREATHING WITH GLOWING WAVE DISPLAY
-        <div className="bg-[#1C1C1E] border border-white/5 rounded-3xl p-6 sm:p-8 flex flex-col items-center gap-6 shadow-sm">
+        <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col items-center gap-6 shadow-sm">
           <BreathingWaveDisplay
             phase={phase}
             phaseDuration={currentPhaseDuration}
@@ -218,7 +218,7 @@ export const BreathingView: React.FC<{ onCompleteSession?: () => void }> = ({ on
           {/* Cancel Button */}
           <button
             onClick={stopBreathing}
-            className="px-4 py-2 rounded-xl bg-white/5 text-white/60 hover:text-white hover:bg-white/10 text-xs flex items-center gap-1.5 transition-colors"
+            className="px-4 py-2 rounded-xl bg-[#2F3E46]/5 dark:bg-white/10 text-[#2F3E46]/80 dark:text-white/70 hover:text-[#5E8B7E] dark:hover:text-white text-xs flex items-center gap-1.5 transition-colors border border-[#2F3E46]/10 dark:border-white/10"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Detener respiración</span>
@@ -226,7 +226,7 @@ export const BreathingView: React.FC<{ onCompleteSession?: () => void }> = ({ on
         </div>
       ) : (
         // STATE 3: COMPLETED WITH SERENE CHARACTER ARTWORK
-        <div className="bg-[#1C1C1E] border border-white/5 rounded-3xl p-6 sm:p-8 flex flex-col items-center gap-5 shadow-sm text-center">
+        <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col items-center gap-5 shadow-sm text-center">
           <div className="inline-flex items-center gap-1.5 bg-[#E5A962]/15 text-[#E5A962] text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full border border-[#E5A962]/30">
             <Sparkles className="w-3.5 h-3.5" />
             <span>SESIÓN COMPLETADA</span>
@@ -237,10 +237,10 @@ export const BreathingView: React.FC<{ onCompleteSession?: () => void }> = ({ on
           </div>
 
           <div className="space-y-1">
-            <h2 className="text-xl font-serif-display font-medium text-white">
+            <h2 className="text-xl font-serif-display font-medium text-[#2F3E46] dark:text-white">
               Muy bien hecho
             </h2>
-            <p className="text-xs text-white/60 max-w-xs mx-auto">
+            <p className="text-xs text-[#5A6D75] dark:text-white/60 max-w-xs mx-auto">
               Has completado los ciclos de respiración. Tu cuerpo ha iniciado el reflejo de calma.
             </p>
           </div>
@@ -249,7 +249,7 @@ export const BreathingView: React.FC<{ onCompleteSession?: () => void }> = ({ on
             {onCompleteSession && (
               <button
                 onClick={onCompleteSession}
-                className="w-full h-14 bg-[#8FAF9A] hover:bg-[#80a38c] text-[#121212] font-semibold text-sm rounded-[18px] flex items-center justify-center gap-2 shadow-lg shadow-[#8FAF9A]/20 active:scale-[0.98]"
+                className="w-full h-14 bg-[#5E8B7E] hover:bg-[#4D7A6D] text-white font-semibold text-sm rounded-[18px] flex items-center justify-center gap-2 shadow-lg shadow-[#5E8B7E]/20 active:scale-[0.98]"
               >
                 <span>Continuar hacia la liberación</span>
                 <ArrowRight className="w-4 h-4" />
@@ -258,7 +258,7 @@ export const BreathingView: React.FC<{ onCompleteSession?: () => void }> = ({ on
 
             <button
               onClick={() => setIsCompleted(false)}
-              className="w-full h-12 bg-transparent text-white/70 hover:text-white text-xs font-medium rounded-xl border border-white/10"
+              className="w-full h-12 bg-transparent text-[#2F3E46]/80 dark:text-white/70 hover:text-[#5E8B7E] dark:hover:text-white text-xs font-medium rounded-xl border border-[#2F3E46]/15 dark:border-white/10"
             >
               Realizar otra respiración
             </button>

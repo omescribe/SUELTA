@@ -36,14 +36,14 @@ export const MusicPlayerButton: React.FC<MusicPlayerButtonProps> = ({
         title={isPlaying ? 'Pausar música relajante' : 'Música relajante (30% vol)'}
         className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all flex items-center gap-1.5 active:scale-95 ${
           isPlaying
-            ? 'bg-[#8FAF9A]/20 border-[#8FAF9A] text-[#8FAF9A] shadow-sm shadow-[#8FAF9A]/20'
-            : 'bg-white/5 border-white/10 text-white/70 hover:text-white hover:bg-white/10'
+            ? 'bg-[#5E8B7E]/20 border-[#5E8B7E] text-[#5E8B7E] shadow-sm shadow-[#5E8B7E]/20'
+            : 'bg-[#2F3E46]/5 dark:bg-white/5 border-[#2F3E46]/10 dark:border-white/10 text-[#2F3E46]/70 dark:text-white/70 hover:text-[#5E8B7E] dark:hover:text-white hover:bg-[#2F3E46]/10'
         } ${className}`}
       >
         {isPlaying ? (
-          <Volume2 className="w-3.5 h-3.5 text-[#8FAF9A] animate-pulse" />
+          <Volume2 className="w-3.5 h-3.5 text-[#5E8B7E] animate-pulse" />
         ) : (
-          <VolumeX className="w-3.5 h-3.5 text-white/50" />
+          <VolumeX className="w-3.5 h-3.5 text-[#5A6D75] dark:text-white/50" />
         )}
         <span>{isPlaying ? 'Música activa' : 'Música relax'}</span>
       </button>
@@ -60,8 +60,8 @@ export const MusicPlayerButton: React.FC<MusicPlayerButtonProps> = ({
         title={isPlaying ? 'Pausar música relajante' : 'Reproducir música relajante'}
         className={`p-3 rounded-2xl shadow-lg border backdrop-blur-md transition-all flex items-center justify-center active:scale-90 ${
           isPlaying
-            ? 'bg-[#8FAF9A] text-[#121212] border-[#8FAF9A] shadow-[#8FAF9A]/30'
-            : 'bg-[#1C1C1E]/90 text-white/70 hover:text-white border-white/10 hover:bg-[#252528]'
+            ? 'bg-[#5E8B7E] text-white border-[#5E8B7E] shadow-[#5E8B7E]/30'
+            : 'bg-white/90 dark:bg-[#1F2E33]/90 text-[#2F3E46]/70 dark:text-white/70 hover:text-[#5E8B7E] dark:hover:text-white border-[#2F3E46]/10 dark:border-white/10'
         } ${className}`}
       >
         {isPlaying ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
@@ -78,14 +78,14 @@ export const MusicPlayerButton: React.FC<MusicPlayerButtonProps> = ({
       title={isPlaying ? 'Pausar música relajante' : 'Música relajante (30% vol)'}
       className={`p-2 sm:px-3 sm:py-2 rounded-xl text-xs font-medium border transition-all flex items-center gap-1.5 active:scale-95 ${
         isPlaying
-          ? 'bg-[#8FAF9A]/20 border-[#8FAF9A] text-[#8FAF9A] shadow-sm'
-          : 'bg-[#1C1C1E] hover:bg-[#252528] text-white/70 hover:text-white border-white/5'
+          ? 'bg-[#5E8B7E]/20 border-[#5E8B7E] text-[#5E8B7E] shadow-sm'
+          : 'bg-[#2F3E46]/5 dark:bg-white/10 hover:bg-[#2F3E46]/10 dark:hover:bg-white/15 text-[#2F3E46]/70 dark:text-white/70 hover:text-[#5E8B7E] dark:hover:text-white border-[#2F3E46]/10 dark:border-white/10'
       } ${className}`}
     >
       {isPlaying ? (
-        <Volume2 className="w-4 h-4 text-[#8FAF9A] animate-pulse" />
+        <Volume2 className="w-4 h-4 text-[#5E8B7E] animate-pulse" />
       ) : (
-        <VolumeX className="w-4 h-4 text-white/50" />
+        <VolumeX className="w-4 h-4 text-[#5A6D75] dark:text-white/50" />
       )}
       <span className="hidden sm:inline">{isPlaying ? 'Música ON' : 'Música'}</span>
     </button>
