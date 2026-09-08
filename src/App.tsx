@@ -72,7 +72,7 @@ export default function App() {
 
   return (
     <div className={`min-h-screen flex flex-col justify-between transition-colors duration-300 ${
-      theme === 'dark' ? 'bg-[#162225] text-[#F1F5F4]' : 'bg-[#F1F5F4] text-[#2F3E46]'
+      theme === 'dark' ? 'bg-[#141210] text-[#fcfbf9]' : 'bg-[#f4faff] text-[#0e1d25]'
     }`}>
       {/* Header with Guide Modal button and Theme toggle */}
       <Header

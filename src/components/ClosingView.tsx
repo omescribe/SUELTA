@@ -3,7 +3,6 @@ import { motion } from 'motion/react';
 import { CheckCircle2, RotateCcw, Compass, ArrowRight, Sparkles } from 'lucide-react';
 import { BreathingWaveDisplay } from './BreathingWaveDisplay';
 import { IllustrationCompletado } from './EmotionIllustrations';
-import { MusicPlayerButton } from './MusicPlayerButton';
 import { saveTimerToStorage, getTimerFromStorage } from '../utils/timer';
 import { playTimerCompleteBeep } from '../utils/audio';
 
@@ -113,7 +112,7 @@ export const ClosingView: React.FC<ClosingViewProps> = ({ onReleaseAnother, onGo
         <div className="w-full flex flex-col items-center gap-5">
           {/* Check Icon Badge */}
           <div className="pt-1 flex items-center justify-center">
-            <div className="inline-flex items-center gap-2 bg-[#5E8B7E]/15 border border-[#5E8B7E]/30 text-[#5E8B7E] text-xs font-semibold px-4 py-1.5 rounded-full shadow-sm">
+            <div className="inline-flex items-center gap-2 bg-[#FF6B4A]/15 border border-[#FF6B4A]/30 text-[#ae3115] text-xs font-semibold px-4 py-1.5 rounded-full shadow-sm">
               <CheckCircle2 className="w-4 h-4" />
               <span>Tu carga ha sido liberada</span>
             </div>
@@ -121,19 +120,16 @@ export const ClosingView: React.FC<ClosingViewProps> = ({ onReleaseAnother, onGo
 
           {/* Heading */}
           <div className="space-y-2 flex flex-col items-center">
-            <h1 className="text-2xl font-serif-display font-medium text-[#2F3E46] dark:text-white tracking-tight">
+            <h1 className="text-2xl font-serif-display font-medium text-[#0e1d25] dark:text-[#fcfbf9] tracking-tight">
               Respira para asentar la calma
             </h1>
-            <p className="text-xs text-[#5A6D75] dark:text-white/60 max-w-xs mx-auto leading-relaxed">
+            <p className="text-xs text-[#59413c] dark:text-[#fcfbf9]/60 max-w-xs mx-auto leading-relaxed">
               3 ciclos conscientes (4-4-4) para armonizar tu ritmo cardíaco y relajar el cuerpo.
             </p>
-            <div className="pt-0.5">
-              <MusicPlayerButton variant="compact" />
-            </div>
           </div>
 
           {/* Glowing Wave Circle Display */}
-          <div className="w-full bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-5 sm:p-6 shadow-sm flex flex-col items-center">
+          <div className="w-full bg-white dark:bg-[#1c1917] border border-[#0e1d25]/10 dark:border-white/10 rounded-3xl p-5 sm:p-6 shadow-sm flex flex-col items-center">
             <BreathingWaveDisplay
               phase={phase}
               phaseDuration={phaseDuration}
@@ -147,7 +143,7 @@ export const ClosingView: React.FC<ClosingViewProps> = ({ onReleaseAnother, onGo
           {/* Quick Skip / Continue button */}
           <button
             onClick={() => setIsCompleted(true)}
-            className="text-xs text-[#5A6D75] dark:text-white/50 hover:text-[#5E8B7E] dark:hover:text-white/80 transition-colors flex items-center gap-1 py-1"
+            className="text-xs text-[#59413c] dark:text-[#fcfbf9]/50 hover:text-[#ae3115] dark:hover:text-[#fcfbf9]/80 transition-colors flex items-center gap-1 py-1"
           >
             <span>Omitir y finalizar</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -155,8 +151,8 @@ export const ClosingView: React.FC<ClosingViewProps> = ({ onReleaseAnother, onGo
         </div>
       ) : (
         // STATE 2: COMPLETED GRACE SCREEN
-        <div className="w-full bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col items-center gap-5 shadow-sm text-center">
-          <div className="inline-flex items-center gap-1.5 bg-[#E5A962]/15 text-[#E5A962] text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full border border-[#E5A962]/30">
+        <div className="w-full bg-white dark:bg-[#1c1917] border border-[#0e1d25]/10 dark:border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col items-center gap-5 shadow-sm text-center">
+          <div className="inline-flex items-center gap-1.5 bg-[#FDB833]/15 text-[#FDB833] text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full border border-[#FDB833]/30">
             <Sparkles className="w-3.5 h-3.5" />
             <span>EJERCICIO COMPLETADO</span>
           </div>
@@ -167,10 +163,10 @@ export const ClosingView: React.FC<ClosingViewProps> = ({ onReleaseAnother, onGo
           </div>
 
           <div className="space-y-1.5">
-            <h2 className="text-2xl font-serif-display font-medium text-[#2F3E46] dark:text-white tracking-tight">
+            <h2 className="text-2xl font-serif-display font-medium text-[#0e1d25] dark:text-[#fcfbf9] tracking-tight">
               Gracias por este momento.
             </h2>
-            <p className="text-xs sm:text-sm text-[#5A6D75] dark:text-white/60 max-w-xs mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#59413c] dark:text-[#fcfbf9]/60 max-w-xs mx-auto leading-relaxed">
               Pequeños actos de cuidado cambian tu día. Tu mente ahora tiene más espacio y ligereza.
             </p>
           </div>
@@ -179,7 +175,7 @@ export const ClosingView: React.FC<ClosingViewProps> = ({ onReleaseAnother, onGo
           <div className="w-full flex flex-col gap-3 pt-2">
             <button
               onClick={onReleaseAnother}
-              className="w-full h-14 bg-[#5E8B7E] hover:bg-[#4D7A6D] text-white font-semibold text-sm rounded-[18px] transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#5E8B7E]/25 active:scale-[0.98]"
+              className="w-full h-14 bg-gradient-to-br from-[#FF6B4A] to-[#FF7E5F] hover:from-[#e85a3a] hover:to-[#e86e4f] text-white font-semibold text-sm rounded-[18px] transition-all flex items-center justify-center gap-2 shadow-[0_8px_24px_-2px_rgba(255,107,74,0.45),0_2px_6px_rgba(253,184,51,0.3)] active:scale-[0.97]"
             >
               <RotateCcw className="w-4 h-4 text-white" />
               <span>Soltar otra carga</span>
@@ -187,9 +183,9 @@ export const ClosingView: React.FC<ClosingViewProps> = ({ onReleaseAnother, onGo
 
             <button
               onClick={onGoToGuides}
-              className="w-full h-12 bg-transparent hover:bg-[#5E8B7E]/10 text-[#2F3E46]/80 dark:text-white/70 hover:text-[#5E8B7E] dark:hover:text-white font-medium text-xs rounded-[18px] border border-[#2F3E46]/15 dark:border-white/10 transition-all flex items-center justify-center gap-2"
+              className="w-full h-12 bg-transparent hover:bg-[#FF6B4A]/10 text-[#0e1d25]/80 dark:text-[#fcfbf9]/70 hover:text-[#ae3115] dark:hover:text-[#ff7854] font-medium text-xs rounded-[18px] border border-[#0e1d25]/15 dark:border-white/10 transition-all flex items-center justify-center gap-2"
             >
-              <Compass className="w-4 h-4 text-[#5E8B7E]" />
+              <Compass className="w-4 h-4 text-[#ae3115] dark:text-[#ff7854]" />
               <span>Explorar más herramientas para tu calma</span>
             </button>
           </div>

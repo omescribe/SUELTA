@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Sprout, 
-  Sparkles, 
-  ChevronDown, 
-  ChevronUp, 
-  Timer, 
-  Play, 
-  Pause, 
-  RotateCcw, 
-  Footprints, 
+import {
+  Sprout,
+  Sparkles,
+  ChevronDown,
+  ChevronUp,
+  Timer,
+  Play,
+  Pause,
+  RotateCcw,
+  Footprints,
   Droplets,
   Layers
 } from 'lucide-react';
 import { ActiveTimer } from '../types';
 import { saveTimerToStorage, getTimerFromStorage, sendTimerNotification, requestNotificationPermission } from '../utils/timer';
 import { playTimerCompleteBeep, initAudioContext } from '../utils/audio';
-import { MusicPlayerButton } from './MusicPlayerButton';
 
 export const ToolsView: React.FC = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>('cesped');
@@ -148,18 +147,13 @@ export const ToolsView: React.FC = () => {
       className="flex flex-col gap-6 max-w-lg mx-auto w-full pb-10"
     >
       {/* Header */}
-      <div className="flex items-start justify-between gap-3 pt-1">
-        <div className="space-y-1">
-          <h1 className="text-2xl font-serif-display font-medium text-[#2F3E46] dark:text-white tracking-tight">
-            Más herramientas para tu calma
-          </h1>
-          <p className="text-xs text-[#5A6D75] dark:text-white/60 leading-relaxed">
-            Herramientas sencillas para recuperar la calma en cualquier momento.
-          </p>
-        </div>
-        <div className="shrink-0 pt-0.5">
-          <MusicPlayerButton variant="compact" />
-        </div>
+      <div className="pt-1 space-y-1">
+        <h1 className="text-2xl font-serif-display font-medium text-[#0e1d25] dark:text-[#fcfbf9] tracking-tight">
+          Más herramientas para tu calma
+        </h1>
+        <p className="text-xs text-[#59413c] dark:text-[#fcfbf9]/60 leading-relaxed">
+          Herramientas sencillas para recuperar la calma en cualquier momento.
+        </p>
       </div>
 
       {/* Floating Active Timer Banner */}
@@ -169,15 +163,15 @@ export const ToolsView: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="p-4 bg-[#5E8B7E]/15 border border-[#5E8B7E] rounded-2xl flex items-center justify-between shadow-lg"
+            className="p-4 bg-[#FF6B4A]/15 border border-[#FF6B4A] rounded-2xl flex items-center justify-between shadow-lg"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#5E8B7E] text-white flex items-center justify-center font-bold">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF6B4A] to-[#FDB833] text-white flex items-center justify-center font-bold">
                 <Timer className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs font-semibold text-[#2F3E46] dark:text-white">{activeTimer.title}</p>
-                <p className="text-lg font-mono font-bold text-[#5E8B7E]">
+                <p className="text-xs font-semibold text-[#0e1d25] dark:text-[#fcfbf9]">{activeTimer.title}</p>
+                <p className="text-lg font-mono font-bold text-[#ae3115] dark:text-[#ff7854]">
                   {formatTimer(activeTimer.remainingSeconds)}
                 </p>
               </div>
@@ -186,14 +180,14 @@ export const ToolsView: React.FC = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={toggleTimerPause}
-                className="p-2 rounded-xl bg-[#5E8B7E]/20 text-[#5E8B7E] hover:bg-[#5E8B7E]/30"
+                className="p-2 rounded-xl bg-[#FF6B4A]/20 text-[#ae3115] dark:text-[#ff7854] hover:bg-[#FF6B4A]/30"
                 title={activeTimer.isRunning ? 'Pausar' : 'Reanudar'}
               >
                 {activeTimer.isRunning ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
               </button>
               <button
                 onClick={stopTimer}
-                className="p-2 rounded-xl bg-[#2F3E46]/10 dark:bg-white/10 text-[#2F3E46]/70 dark:text-white/70 hover:text-[#5E8B7E]"
+                className="p-2 rounded-xl bg-[#0e1d25]/10 dark:bg-white/10 text-[#0e1d25]/70 dark:text-[#fcfbf9]/70 hover:text-[#ae3115] dark:hover:text-[#ff7854]"
                 title="Detener temporizador"
               >
                 <RotateCcw className="w-4 h-4" />
@@ -204,39 +198,39 @@ export const ToolsView: React.FC = () => {
       </AnimatePresence>
 
       {/* Section 1: Grounding - Césped */}
-      <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl overflow-hidden shadow-sm">
+      <div className="bg-white dark:bg-[#1c1917] border border-[#0e1d25]/10 dark:border-white/10 rounded-3xl overflow-hidden shadow-sm">
         <button
           onClick={() => setExpandedSection(expandedSection === 'cesped' ? null : 'cesped')}
-          className="w-full p-5 flex items-center justify-between text-left transition-colors hover:bg-[#5E8B7E]/5"
+          className="w-full p-5 flex items-center justify-between text-left transition-colors hover:bg-[#FF6B4A]/5"
         >
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#5E8B7E]/15 text-[#5E8B7E] flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-2xl bg-[#FF6B4A]/15 text-[#ae3115] flex items-center justify-center flex-shrink-0">
               <Footprints className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-sm font-semibold text-[#2F3E46] dark:text-white">Conecta con la naturaleza (Césped)</h2>
-              <p className="text-xs text-[#5A6D75] dark:text-white/60">Pausa para volver al cuerpo descalzo sobre el césped</p>
+              <h2 className="text-sm font-semibold text-[#0e1d25] dark:text-[#fcfbf9]">Conecta con la naturaleza (Césped)</h2>
+              <p className="text-xs text-[#59413c] dark:text-[#fcfbf9]/60">Pausa para volver al cuerpo descalzo sobre el césped</p>
             </div>
           </div>
-          <div className="text-[#5A6D75] dark:text-white/40">
+          <div className="text-[#59413c] dark:text-[#fcfbf9]/40">
             {expandedSection === 'cesped' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
           </div>
         </button>
 
         {expandedSection === 'cesped' && (
-          <div className="px-5 pb-5 pt-2 border-t border-[#2F3E46]/10 dark:border-white/10 space-y-4 text-xs text-[#2F3E46] dark:text-white/80">
+          <div className="px-5 pb-5 pt-2 border-t border-[#0e1d25]/10 dark:border-white/10 space-y-4 text-xs text-[#0e1d25] dark:text-[#fcfbf9]/80">
             {/* Objective banner */}
-            <p className="text-[#2F3E46] dark:text-white/90 font-medium italic bg-[#5E8B7E]/10 p-3 rounded-2xl leading-relaxed border border-[#5E8B7E]/20">
+            <p className="text-[#0e1d25] dark:text-[#fcfbf9]/90 font-medium italic bg-[#FF6B4A]/10 p-3 rounded-2xl leading-relaxed border border-[#FF6B4A]/20">
               <strong>Objetivo:</strong> Dirigir la atención hacia los sentidos para disminuir la rumiación mental y favorecer una mayor estabilidad corporal.
             </p>
 
             {/* Dedicated Césped Timer Card */}
-            <div className="bg-[#F1F5F4] dark:bg-[#26373E] p-5 rounded-2xl border border-[#5E8B7E]/30 flex flex-col items-center gap-4 text-center">
-              <span className="text-[11px] font-semibold tracking-wider text-[#5E8B7E] uppercase">
+            <div className="bg-[#f4faff] dark:bg-[#23201d] p-5 rounded-2xl border border-[#FF6B4A]/30 flex flex-col items-center gap-4 text-center">
+              <span className="text-[11px] font-semibold tracking-wider text-[#ae3115] uppercase">
                 TEMPORIZADOR DE PRÁCTICA (CÉSPED)
               </span>
 
-              <div className="text-4xl sm:text-5xl font-mono font-bold text-[#5E8B7E] tracking-wider py-1">
+              <div className="text-4xl sm:text-5xl font-mono font-bold text-[#ae3115] dark:text-[#ff7854] tracking-wider py-1">
                 {cespedDisplayTime}
               </div>
 
@@ -248,8 +242,8 @@ export const ToolsView: React.FC = () => {
                   }}
                   className={`py-2.5 px-2 rounded-full text-xs font-semibold transition-all ${
                     isCespedTimerActive && cespedSelectedMinutes === 10
-                      ? 'bg-[#5E8B7E] text-white shadow-md shadow-[#5E8B7E]/30'
-                      : 'bg-[#5E8B7E] hover:bg-[#4D7A6D] text-white'
+                      ? 'bg-gradient-to-br from-[#FF6B4A] to-[#FF7E5F] text-white shadow-md shadow-[#FF6B4A]/30'
+                      : 'bg-gradient-to-br from-[#FF6B4A] to-[#FF7E5F] hover:from-[#e85a3a] hover:to-[#e86e4f] text-white'
                   }`}
                 >
                   Iniciar 10 min
@@ -262,8 +256,8 @@ export const ToolsView: React.FC = () => {
                   }}
                   className={`py-2.5 px-2 rounded-full text-xs font-medium transition-all ${
                     isCespedTimerActive && cespedSelectedMinutes === 20
-                      ? 'bg-[#5E8B7E] text-white'
-                      : 'bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/15 dark:border-white/10 text-[#2F3E46] dark:text-white/80'
+                      ? 'bg-[#FF6B4A] text-white'
+                      : 'bg-white dark:bg-[#1c1917] border border-[#0e1d25]/15 dark:border-white/10 text-[#0e1d25] dark:text-[#fcfbf9]/80'
                   }`}
                 >
                   20 min
@@ -271,7 +265,7 @@ export const ToolsView: React.FC = () => {
 
                 <button
                   onClick={stopTimer}
-                  className="py-2.5 px-2 rounded-full text-xs font-medium bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/15 dark:border-white/10 text-[#2F3E46] dark:text-white/80 hover:text-[#5E8B7E] transition-all"
+                  className="py-2.5 px-2 rounded-full text-xs font-medium bg-white dark:bg-[#1c1917] border border-[#0e1d25]/15 dark:border-white/10 text-[#0e1d25] dark:text-[#fcfbf9]/80 hover:text-[#ae3115] dark:hover:text-[#ff7854] transition-all"
                 >
                   Detener
                 </button>
@@ -279,20 +273,20 @@ export const ToolsView: React.FC = () => {
             </div>
 
             {/* 1. Camina descalzo */}
-            <div className="bg-[#F1F5F4] dark:bg-[#26373E] p-4 rounded-2xl border border-[#2F3E46]/10 dark:border-white/5 space-y-2">
+            <div className="bg-[#f4faff] dark:bg-[#23201d] p-4 rounded-2xl border border-[#0e1d25]/10 dark:border-white/5 space-y-2">
               <div className="flex items-center justify-between">
-                <strong className="text-[#2F3E46] dark:text-white text-xs font-semibold">1. Camina descalzo (10 a 20 minutos)</strong>
+                <strong className="text-[#0e1d25] dark:text-[#fcfbf9] text-xs font-semibold">1. Camina descalzo (10 a 20 minutos)</strong>
                 <button
                   onClick={() => {
                     setCespedSelectedMinutes(15);
                     startTimer('Camina Descalzo en Césped', 15, 'cesped');
                   }}
-                  className="px-2.5 py-1 bg-[#5E8B7E]/20 text-[#5E8B7E] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#5E8B7E]/30 border border-[#5E8B7E]/30"
+                  className="px-2.5 py-1 bg-[#FF6B4A]/20 text-[#ae3115] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#FF6B4A]/30 border border-[#FF6B4A]/30"
                 >
                   <Play className="w-3 h-3" /> 15 min
                 </button>
               </div>
-              <ul className="space-y-1 text-[#5A6D75] dark:text-white/70 pl-2">
+              <ul className="space-y-1 text-[#59413c] dark:text-[#fcfbf9]/70 pl-2">
                 <li>• Busca un césped limpio, seguro y libre de desechos.</li>
                 <li>• Quítate los zapatos y las medias, y comienza a caminar lentamente.</li>
                 <li>• Siente la textura del césped bajo tus pies, la temperatura y el movimiento de cada paso.</li>
@@ -301,20 +295,20 @@ export const ToolsView: React.FC = () => {
             </div>
 
             {/* 2. Quédate de pie */}
-            <div className="bg-[#F1F5F4] dark:bg-[#26373E] p-4 rounded-2xl border border-[#2F3E46]/10 dark:border-white/5 space-y-2">
+            <div className="bg-[#f4faff] dark:bg-[#23201d] p-4 rounded-2xl border border-[#0e1d25]/10 dark:border-white/5 space-y-2">
               <div className="flex items-center justify-between">
-                <strong className="text-[#2F3E46] dark:text-white text-xs font-semibold">2. Quédate de pie (5 a 15 minutos)</strong>
+                <strong className="text-[#0e1d25] dark:text-[#fcfbf9] text-xs font-semibold">2. Quédate de pie (5 a 15 minutos)</strong>
                 <button
                   onClick={() => {
                     setCespedSelectedMinutes(10);
                     startTimer('De Pie en Césped', 10, 'cesped');
                   }}
-                  className="px-2.5 py-1 bg-[#5E8B7E]/20 text-[#5E8B7E] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#5E8B7E]/30 border border-[#5E8B7E]/30"
+                  className="px-2.5 py-1 bg-[#FF6B4A]/20 text-[#ae3115] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#FF6B4A]/30 border border-[#FF6B4A]/30"
                 >
                   <Play className="w-3 h-3" /> 10 min
                 </button>
               </div>
-              <ul className="space-y-1 text-[#5A6D75] dark:text-white/70 pl-2">
+              <ul className="space-y-1 text-[#59413c] dark:text-[#fcfbf9]/70 pl-2">
                 <li>• Quítate los zapatos y las medias, y permanece de pie sobre el césped.</li>
                 <li>• Separa ligeramente los pies, relaja las rodillas y deja caer los brazos.</li>
                 <li>• Siente el peso de tu cuerpo y el contacto de tus pies con el suelo.</li>
@@ -323,20 +317,20 @@ export const ToolsView: React.FC = () => {
             </div>
 
             {/* 3. Siéntate en el césped */}
-            <div className="bg-[#F1F5F4] dark:bg-[#26373E] p-4 rounded-2xl border border-[#2F3E46]/10 dark:border-white/5 space-y-2">
+            <div className="bg-[#f4faff] dark:bg-[#23201d] p-4 rounded-2xl border border-[#0e1d25]/10 dark:border-white/5 space-y-2">
               <div className="flex items-center justify-between">
-                <strong className="text-[#2F3E46] dark:text-white text-xs font-semibold">3. Siéntate en el césped (10 a 20 minutos)</strong>
+                <strong className="text-[#0e1d25] dark:text-[#fcfbf9] text-xs font-semibold">3. Siéntate en el césped (10 a 20 minutos)</strong>
                 <button
                   onClick={() => {
                     setCespedSelectedMinutes(15);
                     startTimer('Sentarse en Césped', 15, 'cesped');
                   }}
-                  className="px-2.5 py-1 bg-[#5E8B7E]/20 text-[#5E8B7E] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#5E8B7E]/30 border border-[#5E8B7E]/30"
+                  className="px-2.5 py-1 bg-[#FF6B4A]/20 text-[#ae3115] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#FF6B4A]/30 border border-[#FF6B4A]/30"
                 >
                   <Play className="w-3 h-3" /> 15 min
                 </button>
               </div>
-              <ul className="space-y-1 text-[#5A6D75] dark:text-white/70 pl-2">
+              <ul className="space-y-1 text-[#59413c] dark:text-[#fcfbf9]/70 pl-2">
                 <li>• Siéntate sobre el césped limpio y seco. Puedes hacerlo directamente o utilizar una manta.</li>
                 <li>• Apoya las manos sobre tus piernas o sobre el césped. Siente los puntos de contacto de tu cuerpo con el suelo.</li>
                 <li>• Observa los sonidos, el aire, la temperatura y todo lo que te rodea. Deja que tu atención descanse en el momento presente.</li>
@@ -344,20 +338,20 @@ export const ToolsView: React.FC = () => {
             </div>
 
             {/* 4. Descansa sobre el césped */}
-            <div className="bg-[#F1F5F4] dark:bg-[#26373E] p-4 rounded-2xl border border-[#2F3E46]/10 dark:border-white/5 space-y-2">
+            <div className="bg-[#f4faff] dark:bg-[#23201d] p-4 rounded-2xl border border-[#0e1d25]/10 dark:border-white/5 space-y-2">
               <div className="flex items-center justify-between">
-                <strong className="text-[#2F3E46] dark:text-white text-xs font-semibold">4. Descansa sobre el césped (10 a 20 minutos)</strong>
+                <strong className="text-[#0e1d25] dark:text-[#fcfbf9] text-xs font-semibold">4. Descansa sobre el césped (10 a 20 minutos)</strong>
                 <button
                   onClick={() => {
                     setCespedSelectedMinutes(20);
                     startTimer('Descansar en Césped', 20, 'cesped');
                   }}
-                  className="px-2.5 py-1 bg-[#5E8B7E]/20 text-[#5E8B7E] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#5E8B7E]/30 border border-[#5E8B7E]/30"
+                  className="px-2.5 py-1 bg-[#FF6B4A]/20 text-[#ae3115] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#FF6B4A]/30 border border-[#FF6B4A]/30"
                 >
                   <Play className="w-3 h-3" /> 20 min
                 </button>
               </div>
-              <ul className="space-y-1 text-[#5A6D75] dark:text-white/70 pl-2">
+              <ul className="space-y-1 text-[#59413c] dark:text-[#fcfbf9]/70 pl-2">
                 <li>• Acuéstate cómodamente sobre el césped si lo prefieres, utilizando una manta. Siente cómo el suelo sostiene tu cuerpo.</li>
                 <li>• Observa el cielo, las hojas o simplemente cierra los ojos.</li>
                 <li>• Escucha los sonidos que te rodean y permite que tu cuerpo descanse. No tienes que hacer nada, solo estar.</li>
@@ -368,39 +362,39 @@ export const ToolsView: React.FC = () => {
       </div>
 
       {/* Section 2: Grounding - Árbol */}
-      <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl overflow-hidden shadow-sm">
+      <div className="bg-white dark:bg-[#1c1917] border border-[#0e1d25]/10 dark:border-white/10 rounded-3xl overflow-hidden shadow-sm">
         <button
           onClick={() => setExpandedSection(expandedSection === 'arbol' ? null : 'arbol')}
-          className="w-full p-5 flex items-center justify-between text-left transition-colors hover:bg-[#5E8B7E]/5"
+          className="w-full p-5 flex items-center justify-between text-left transition-colors hover:bg-[#FDB833]/5"
         >
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#E5A962]/20 text-[#E5A962] flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-2xl bg-[#FDB833]/20 text-[#FDB833] flex items-center justify-center flex-shrink-0">
               <Sprout className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-sm font-semibold text-[#2F3E46] dark:text-white">Conecta con la naturaleza (Árbol)</h2>
-              <p className="text-xs text-[#5A6D75] dark:text-white/60">Enraizamiento profundo apoyando manos o abrazando</p>
+              <h2 className="text-sm font-semibold text-[#0e1d25] dark:text-[#fcfbf9]">Conecta con la naturaleza (Árbol)</h2>
+              <p className="text-xs text-[#59413c] dark:text-[#fcfbf9]/60">Enraizamiento profundo apoyando manos o abrazando</p>
             </div>
           </div>
-          <div className="text-[#5A6D75] dark:text-white/40">
+          <div className="text-[#59413c] dark:text-[#fcfbf9]/40">
             {expandedSection === 'arbol' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
           </div>
         </button>
 
         {expandedSection === 'arbol' && (
-          <div className="px-5 pb-5 pt-2 border-t border-[#2F3E46]/10 dark:border-white/10 space-y-4 text-xs text-[#2F3E46] dark:text-white/80">
+          <div className="px-5 pb-5 pt-2 border-t border-[#0e1d25]/10 dark:border-white/10 space-y-4 text-xs text-[#0e1d25] dark:text-[#fcfbf9]/80">
             {/* Objective banner */}
-            <p className="text-[#2F3E46] dark:text-white/90 font-medium italic bg-[#E5A962]/10 p-3 rounded-2xl leading-relaxed border border-[#E5A962]/20">
+            <p className="text-[#0e1d25] dark:text-[#fcfbf9]/90 font-medium italic bg-[#FDB833]/10 p-3 rounded-2xl leading-relaxed border border-[#FDB833]/20">
               <strong>Objetivo:</strong> Utilizar el contacto táctil y la solidez de la corteza para reducir la hiperactividad emocional.
             </p>
 
             {/* Dedicated Árbol Timer Card */}
-            <div className="bg-[#F1F5F4] dark:bg-[#26373E] p-5 rounded-2xl border border-[#5E8B7E]/30 flex flex-col items-center gap-4 text-center">
-              <span className="text-[11px] font-semibold tracking-wider text-[#5E8B7E] uppercase">
+            <div className="bg-[#f4faff] dark:bg-[#23201d] p-5 rounded-2xl border border-[#FF6B4A]/30 flex flex-col items-center gap-4 text-center">
+              <span className="text-[11px] font-semibold tracking-wider text-[#ae3115] uppercase">
                 TEMPORIZADOR DE PRÁCTICA (ÁRBOL)
               </span>
 
-              <div className="text-4xl sm:text-5xl font-mono font-bold text-[#5E8B7E] tracking-wider py-1">
+              <div className="text-4xl sm:text-5xl font-mono font-bold text-[#ae3115] dark:text-[#ff7854] tracking-wider py-1">
                 {arbolDisplayTime}
               </div>
 
@@ -412,8 +406,8 @@ export const ToolsView: React.FC = () => {
                   }}
                   className={`py-2.5 px-2 rounded-full text-xs font-semibold transition-all ${
                     isArbolTimerActive && arbolSelectedMinutes === 5
-                      ? 'bg-[#5E8B7E] text-white shadow-md shadow-[#5E8B7E]/30'
-                      : 'bg-[#5E8B7E] hover:bg-[#4D7A6D] text-white'
+                      ? 'bg-gradient-to-br from-[#FF6B4A] to-[#FF7E5F] text-white shadow-md shadow-[#FF6B4A]/30'
+                      : 'bg-gradient-to-br from-[#FF6B4A] to-[#FF7E5F] hover:from-[#e85a3a] hover:to-[#e86e4f] text-white'
                   }`}
                 >
                   Iniciar 5 min
@@ -426,8 +420,8 @@ export const ToolsView: React.FC = () => {
                   }}
                   className={`py-2.5 px-2 rounded-full text-xs font-medium transition-all ${
                     isArbolTimerActive && arbolSelectedMinutes === 3
-                      ? 'bg-[#5E8B7E] text-white'
-                      : 'bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/15 dark:border-white/10 text-[#2F3E46] dark:text-white/80'
+                      ? 'bg-[#FF6B4A] text-white'
+                      : 'bg-white dark:bg-[#1c1917] border border-[#0e1d25]/15 dark:border-white/10 text-[#0e1d25] dark:text-[#fcfbf9]/80'
                   }`}
                 >
                   3 min
@@ -435,7 +429,7 @@ export const ToolsView: React.FC = () => {
 
                 <button
                   onClick={stopTimer}
-                  className="py-2.5 px-2 rounded-full text-xs font-medium bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/15 dark:border-white/10 text-[#2F3E46] dark:text-white/80 hover:text-[#5E8B7E] transition-all"
+                  className="py-2.5 px-2 rounded-full text-xs font-medium bg-white dark:bg-[#1c1917] border border-[#0e1d25]/15 dark:border-white/10 text-[#0e1d25] dark:text-[#fcfbf9]/80 hover:text-[#ae3115] dark:hover:text-[#ff7854] transition-all"
                 >
                   Detener
                 </button>
@@ -443,20 +437,20 @@ export const ToolsView: React.FC = () => {
             </div>
 
             {/* 1. Siente hojas y ramas */}
-            <div className="bg-[#F1F5F4] dark:bg-[#26373E] p-4 rounded-2xl border border-[#2F3E46]/10 dark:border-white/5 space-y-2">
+            <div className="bg-[#f4faff] dark:bg-[#23201d] p-4 rounded-2xl border border-[#0e1d25]/10 dark:border-white/5 space-y-2">
               <div className="flex items-center justify-between">
-                <strong className="text-[#2F3E46] dark:text-white text-xs font-semibold">1. Siente las hojas y las ramas (3 a 5 minutos)</strong>
+                <strong className="text-[#0e1d25] dark:text-[#fcfbf9] text-xs font-semibold">1. Siente las hojas y las ramas (3 a 5 minutos)</strong>
                 <button
                   onClick={() => {
                     setArbolSelectedMinutes(3);
                     startTimer('Sentir Hojas y Ramas', 3, 'arbol');
                   }}
-                  className="px-2.5 py-1 bg-[#5E8B7E]/20 text-[#5E8B7E] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#5E8B7E]/30 border border-[#5E8B7E]/30"
+                  className="px-2.5 py-1 bg-[#FF6B4A]/20 text-[#ae3115] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#FF6B4A]/30 border border-[#FF6B4A]/30"
                 >
                   <Play className="w-3 h-3" /> 3 min
                 </button>
               </div>
-              <ul className="space-y-1 text-[#5A6D75] dark:text-white/70 pl-2">
+              <ul className="space-y-1 text-[#59413c] dark:text-[#fcfbf9]/70 pl-2">
                 <li>• Acércate a un árbol y toca suavemente sus hojas o ramas.</li>
                 <li>• Presta atención a su textura, temperatura, forma y pequeños detalles.</li>
                 <li>• Explora lentamente con tus dedos y vuelve a la sensación cada vez que tu mente se aleje. Siente, observa, permanece.</li>
@@ -464,39 +458,39 @@ export const ToolsView: React.FC = () => {
             </div>
 
             {/* 2. Apoya tus manos */}
-            <div className="bg-[#F1F5F4] dark:bg-[#26373E] p-4 rounded-2xl border border-[#2F3E46]/10 dark:border-white/5 space-y-2">
+            <div className="bg-[#f4faff] dark:bg-[#23201d] p-4 rounded-2xl border border-[#0e1d25]/10 dark:border-white/5 space-y-2">
               <div className="flex items-center justify-between">
-                <strong className="text-[#2F3E46] dark:text-white text-xs font-semibold">2. Apoya tus manos en un árbol (2 a 5 minutos)</strong>
+                <strong className="text-[#0e1d25] dark:text-[#fcfbf9] text-xs font-semibold">2. Apoya tus manos en un árbol (2 a 5 minutos)</strong>
                 <button
                   onClick={() => {
                     setArbolSelectedMinutes(3);
                     startTimer('Manos en el Tronco', 3, 'arbol');
                   }}
-                  className="px-2.5 py-1 bg-[#5E8B7E]/20 text-[#5E8B7E] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#5E8B7E]/30 border border-[#5E8B7E]/30"
+                  className="px-2.5 py-1 bg-[#FF6B4A]/20 text-[#ae3115] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#FF6B4A]/30 border border-[#FF6B4A]/30"
                 >
                   <Play className="w-3 h-3" /> 3 min
                 </button>
               </div>
-              <p className="text-[#5A6D75] dark:text-white/70 leading-relaxed">
+              <p className="text-[#59413c] dark:text-[#fcfbf9]/70 leading-relaxed">
                 Elige un árbol que te resulte agradable y coloca suavemente ambas manos sobre su tronco. Relaja los hombros y siente la textura y temperatura de la corteza. Permanece unos minutos observando tu respiración y las sensaciones de tus manos.
               </p>
             </div>
 
             {/* 3. Abraza un árbol */}
-            <div className="bg-[#F1F5F4] dark:bg-[#26373E] p-4 rounded-2xl border border-[#2F3E46]/10 dark:border-white/5 space-y-2">
+            <div className="bg-[#f4faff] dark:bg-[#23201d] p-4 rounded-2xl border border-[#0e1d25]/10 dark:border-white/5 space-y-2">
               <div className="flex items-center justify-between">
-                <strong className="text-[#2F3E46] dark:text-white text-xs font-semibold">3. Abraza un árbol (1 a 3 minutos)</strong>
+                <strong className="text-[#0e1d25] dark:text-[#fcfbf9] text-xs font-semibold">3. Abraza un árbol (1 a 3 minutos)</strong>
                 <button
                   onClick={() => {
                     setArbolSelectedMinutes(2);
                     startTimer('Abrazar un Árbol', 2, 'arbol');
                   }}
-                  className="px-2.5 py-1 bg-[#5E8B7E]/20 text-[#5E8B7E] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#5E8B7E]/30 border border-[#5E8B7E]/30"
+                  className="px-2.5 py-1 bg-[#FF6B4A]/20 text-[#ae3115] font-semibold text-[11px] rounded-lg flex items-center gap-1 hover:bg-[#FF6B4A]/30 border border-[#FF6B4A]/30"
                 >
                   <Play className="w-3 h-3" /> 2 min
                 </button>
               </div>
-              <p className="text-[#5A6D75] dark:text-white/70 leading-relaxed">
+              <p className="text-[#59413c] dark:text-[#fcfbf9]/70 leading-relaxed">
                 Elige un árbol que sea cómodo y seguro para abrazar. Rodea suavemente el tronco con tus brazos sin apretar. Puedes apoyar las manos o el pecho si te resulta agradable. Respira con naturalidad y presta atención a la sensación del contacto. Quédate unos instantes simplemente presente.
               </p>
             </div>
@@ -505,46 +499,46 @@ export const ToolsView: React.FC = () => {
       </div>
 
       {/* Section 3: Escaneo Corporal */}
-      <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-5 space-y-2.5 shadow-sm">
+      <div className="bg-white dark:bg-[#1c1917] border border-[#0e1d25]/10 dark:border-white/10 rounded-3xl p-5 space-y-2.5 shadow-sm">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-[#E8AEB7]/20 text-[#E8AEB7] flex items-center justify-center flex-shrink-0">
+          <div className="w-10 h-10 rounded-2xl bg-[#ffb4a3]/20 text-[#FF7E5F] flex items-center justify-center flex-shrink-0">
             <Layers className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-sm font-semibold text-[#2F3E46] dark:text-white">Escaneo Corporal</h2>
-            <p className="text-xs text-[#5A6D75] dark:text-white/60">Reconocer dónde se acumula la tensión física (2 a 4 min)</p>
+            <h2 className="text-sm font-semibold text-[#0e1d25] dark:text-[#fcfbf9]">Escaneo Corporal</h2>
+            <p className="text-xs text-[#59413c] dark:text-[#fcfbf9]/60">Reconocer dónde se acumula la tensión física (2 a 4 min)</p>
           </div>
         </div>
-        <p className="text-xs text-[#5A6D75] dark:text-white/70 leading-relaxed pt-1">
+        <p className="text-xs text-[#59413c] dark:text-[#fcfbf9]/70 leading-relaxed pt-1">
           Cierra los ojos si te resulta cómodo. Lleva lentamente tu atención hacia: cabeza, mandíbula, cuello, hombros, pecho, abdomen, espalda, piernas y pies. No intentes relajar nada, solo observa con respiración natural.
         </p>
       </div>
 
       {/* Section 4: Paño Frío */}
-      <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-5 space-y-2.5 shadow-sm">
+      <div className="bg-white dark:bg-[#1c1917] border border-[#0e1d25]/10 dark:border-white/10 rounded-3xl p-5 space-y-2.5 shadow-sm">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-[#A7C7E7]/20 text-[#A7C7E7] flex items-center justify-center flex-shrink-0">
+          <div className="w-10 h-10 rounded-2xl bg-[#48CAE4]/20 text-[#48CAE4] flex items-center justify-center flex-shrink-0">
             <Droplets className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-sm font-semibold text-[#2F3E46] dark:text-white">Paño Frío (Activación Vagal)</h2>
-            <p className="text-xs text-[#5A6D75] dark:text-white/60">Estrategia física inmediata para momentos de sobrecarga</p>
+            <h2 className="text-sm font-semibold text-[#0e1d25] dark:text-[#fcfbf9]">Paño Frío (Activación Vagal)</h2>
+            <p className="text-xs text-[#59413c] dark:text-[#fcfbf9]/60">Estrategia física inmediata para momentos de sobrecarga</p>
           </div>
         </div>
-        <p className="text-xs text-[#5A6D75] dark:text-white/70 leading-relaxed pt-1">
+        <p className="text-xs text-[#59413c] dark:text-[#fcfbf9]/70 leading-relaxed pt-1">
           Humedece un paño con agua fresca. Apóyalo suavemente sobre tus sienes o rostro durante 30 a 60 segundos respirando lento. Activa los reflejos del nervio vago reduciendo la frecuencia cardíaca.
         </p>
       </div>
 
       {/* Section 5: Frases Calmantes */}
-      <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-5 space-y-3 shadow-sm">
+      <div className="bg-white dark:bg-[#1c1917] border border-[#0e1d25]/10 dark:border-white/10 rounded-3xl p-5 space-y-3 shadow-sm">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-[#E5A962]/20 text-[#E5A962] flex items-center justify-center flex-shrink-0">
+          <div className="w-10 h-10 rounded-2xl bg-[#FDB833]/20 text-[#FDB833] flex items-center justify-center flex-shrink-0">
             <Sparkles className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-sm font-semibold text-[#2F3E46] dark:text-white">Frases Calmantes</h2>
-            <p className="text-xs text-[#5A6D75] dark:text-white/60">Anclas de diálogo interno compasivo</p>
+            <h2 className="text-sm font-semibold text-[#0e1d25] dark:text-[#fcfbf9]">Frases Calmantes</h2>
+            <p className="text-xs text-[#59413c] dark:text-[#fcfbf9]/60">Anclas de diálogo interno compasivo</p>
           </div>
         </div>
 
@@ -556,7 +550,7 @@ export const ToolsView: React.FC = () => {
             'Puedo permitirme hacer una pausa.',
             'Estoy haciendo lo mejor que puedo con lo que tengo hoy.',
           ].map((phrase, idx) => (
-            <div key={idx} className="p-3 bg-[#F1F5F4] dark:bg-[#26373E] rounded-xl text-xs text-[#2F3E46] dark:text-white/80 border border-[#2F3E46]/10 dark:border-white/5 font-serif-display italic">
+            <div key={idx} className="p-3 bg-[#f4faff] dark:bg-[#23201d] rounded-xl text-xs text-[#0e1d25] dark:text-[#fcfbf9]/80 border border-[#0e1d25]/10 dark:border-white/5 font-serif-display italic">
               &ldquo;{phrase}&rdquo;
             </div>
           ))}

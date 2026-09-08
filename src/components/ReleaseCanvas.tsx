@@ -124,9 +124,9 @@ export const ReleaseCanvas: React.FC<ReleaseCanvasProps> = ({ practice, text, on
         // ==========================================
         // Warm dark hearth ambient background
         const bgGrad = ctx.createRadialGradient(width * 0.35, height - 40, 20, width / 2, height / 2, width);
-        bgGrad.addColorStop(0, '#221510');
-        bgGrad.addColorStop(0.5, '#161313');
-        bgGrad.addColorStop(1, '#0D0C0C');
+        bgGrad.addColorStop(0, '#1e1b19');
+        bgGrad.addColorStop(0.5, '#141210');
+        bgGrad.addColorStop(1, '#0d0c0b');
         ctx.fillStyle = bgGrad;
         ctx.fillRect(0, 0, width, height);
 
@@ -210,7 +210,7 @@ export const ReleaseCanvas: React.FC<ReleaseCanvasProps> = ({ practice, text, on
 
           // Draw User Written Text with full multi-line capacity (500+ characters)
           ctx.fillStyle = '#2C2B2A';
-          ctx.font = `500 ${fireFontSize}px "Newsreader", Georgia, serif`;
+          ctx.font = `500 ${fireFontSize}px "EB Garamond", "Newsreader", Georgia, serif`;
           fireLines.forEach((line, idx) => {
             const y = paperY + 4 + (idx + 1) * fireLineHeight;
             if (y <= paperY + paperH - 4) {
@@ -461,7 +461,7 @@ export const ReleaseCanvas: React.FC<ReleaseCanvasProps> = ({ practice, text, on
         ctx.clip();
 
         ctx.fillStyle = '#7A6B5A';
-        ctx.font = '500 13px "Newsreader", Georgia, serif';
+        ctx.font = '500 13px "EB Garamond", "Newsreader", Georgia, serif';
         sandLines.forEach((line, idx) => {
           const yPos = height / 2 - 40 + idx * 20;
           // Inscribed shadow effect in sand
@@ -543,11 +543,11 @@ export const ReleaseCanvas: React.FC<ReleaseCanvasProps> = ({ practice, text, on
         // ==========================================
         // 3. GLOBO: CIELO INFINITO, PARGAMINO Y GLOBO QUE SE ELEVA
         // ==========================================
-        // Serene sky gradient from dusk to twilight
+        // Serene sky gradient from dusk to twilight (Somatic Night)
         const skyGrad = ctx.createLinearGradient(0, 0, 0, height);
-        skyGrad.addColorStop(0, '#1C262B');
-        skyGrad.addColorStop(0.5, '#28383F');
-        skyGrad.addColorStop(1, '#3A4C53');
+        skyGrad.addColorStop(0, '#141210');
+        skyGrad.addColorStop(0.5, '#1c1917');
+        skyGrad.addColorStop(1, '#2d2927');
         ctx.fillStyle = skyGrad;
         ctx.fillRect(0, 0, width, height);
 
@@ -623,16 +623,16 @@ export const ReleaseCanvas: React.FC<ReleaseCanvasProps> = ({ practice, text, on
 
         // Note user text
         ctx.fillStyle = '#222';
-        ctx.font = '10.5px "Newsreader", Georgia, serif';
+        ctx.font = '10.5px "EB Garamond", "Newsreader", Georgia, serif';
         balloonLines.forEach((line, idx) => {
           ctx.fillText(line, -noteW / 2 + 10, 103 + idx * 16);
         });
 
-        // 3. Sage Green Balloon Sphere
+        // 3. Bioluminescent Coral Balloon Sphere (Somatic Radiance)
         const balloonGrad = ctx.createRadialGradient(-10, -12, 5, 0, 0, 36);
-        balloonGrad.addColorStop(0, '#A6C4B0');
-        balloonGrad.addColorStop(0.7, '#8FAF9A');
-        balloonGrad.addColorStop(1, '#6F8E7A');
+        balloonGrad.addColorStop(0, '#ffb4a1');
+        balloonGrad.addColorStop(0.7, '#ff7854');
+        balloonGrad.addColorStop(1, '#a8391a');
 
         ctx.fillStyle = balloonGrad;
         ctx.beginPath();
@@ -640,7 +640,7 @@ export const ReleaseCanvas: React.FC<ReleaseCanvasProps> = ({ practice, text, on
         ctx.fill();
 
         // Balloon knot
-        ctx.fillStyle = '#6F8E7A';
+        ctx.fillStyle = '#a8391a';
         ctx.beginPath();
         ctx.moveTo(-4, 38);
         ctx.lineTo(4, 38);
@@ -682,27 +682,27 @@ export const ReleaseCanvas: React.FC<ReleaseCanvasProps> = ({ practice, text, on
       className="flex flex-col items-center justify-center max-w-lg mx-auto w-full gap-4 pb-6"
     >
       <div className="text-center space-y-1">
-        <h2 className="text-xl font-serif-display font-medium text-[#8FAF9A] tracking-tight">
+        <h2 className="text-xl font-serif-display font-medium text-[#ff7854] tracking-tight">
           Liberando tu carga...
         </h2>
-        <p className="text-xs text-white/70">
+        <p className="text-xs text-[#fcfbf9]/70">
           Inhala profundo. Observa cómo se disuelve tu carga.
         </p>
       </div>
 
       {/* Somatic Canvas Visual Display */}
-      <div className="w-full h-80 sm:h-96 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative bg-[#18181A]">
+      <div className="w-full h-80 sm:h-96 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative bg-[#141210]">
         <canvas ref={canvasRef} className="w-full h-full block" />
 
         {/* Progress Bar indicator */}
         <div className="absolute bottom-3 left-6 right-6 flex flex-col gap-1.5 bg-black/40 backdrop-blur-md p-2.5 rounded-xl border border-white/5">
-          <div className="flex justify-between text-[10px] text-white/70 font-mono">
+          <div className="flex justify-between text-[10px] text-[#fcfbf9]/70 font-mono">
             <span>Práctica de transformación</span>
             <span>{progressPercent}%</span>
           </div>
           <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
             <div
-              className="h-full bg-[#8FAF9A] transition-all duration-300 rounded-full"
+              className="h-full bg-gradient-to-r from-[#FF6B4A] to-[#FDB833] transition-all duration-300 rounded-full"
               style={{ width: `${progressPercent}%` }}
             />
           </div>

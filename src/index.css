@@ -4,37 +4,152 @@
 
 @layer base {
   :root {
-    /* Paleta Inspirada en la Referencia Mindora */
-    --color-sage: #5E8B7E;
-    --color-sage-hover: #4D7A6D;
-    --color-soft-blue: #A7C7E7;
-    --color-slate-blue: #2F3E46;
-    --color-offwhite: #F1F5F4;
-    --color-soft-pink: #E8AEB7;
+    /* ============================================================
+       Somatic Radiance — Tema Claro
+       Vibrant uplifting, joyful somatic emotional regulation.
+       Warm contemporary tactility + luminous glassmorphism.
+       ============================================================ */
 
-    /* Modo Claro (Aire + Calma + Naturaleza Suave) */
-    --bg-light: #F1F5F4;
-    --bg-secondary-light: #E4ECE9;
-    --card-light: #FFFFFF;
-    --border-light: rgba(47, 62, 70, 0.08);
-    --text-main-light: #2F3E46;
-    --text-sec-light: #5A6D75;
-    
-    /* Modo Oscuro (Profundo + Acogedor + Pizarra Sereno) */
-    --bg-dark: #162225;
-    --bg-secondary-dark: #1F2E33;
-    --card-dark: #26373E;
-    --border-dark: rgba(167, 199, 231, 0.12);
-    --text-main-dark: #F1F5F4;
-    --text-sec-dark: #A3B5BD;
-    
-    /* Acentos */
-    --accent-salvia: #5E8B7E;
-    --accent-blue: #A7C7E7;
-    --accent-slate: #2F3E46;
-    --accent-pink: #E8AEB7;
-    --accent-amber: #E5A962;
-    --accent-terracota: #C47C68;
+    /* Surfaces (light) */
+    --color-surface: #f4faff;
+    --color-surface-dim: #ccdce7;
+    --color-surface-bright: #f4faff;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #e7f6ff;
+    --color-surface-container: #e0f0fb;
+    --color-surface-container-high: #daebf5;
+    --color-surface-container-highest: #d5e5ef;
+    --color-on-surface: #0e1d25;
+    --color-on-surface-variant: #59413c;
+    --color-surface-variant: #d5e5ef;
+
+    /* Brand light accents */
+    --color-surface-tint: #ae3115;
+    --color-primary: #ae3115;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #ff6b4a;
+    --color-on-primary-container: #661000;
+    --color-inverse-primary: #ffb4a3;
+
+    --color-secondary: #7e5700;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #ffba36;
+    --color-on-secondary-container: #6f4c00;
+
+    --color-tertiary: #006a62;
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #00ada0;
+    --color-on-tertiary-container: #003934;
+
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-error-container: #ffdad6;
+    --color-on-error-container: #93000a;
+
+    --color-outline: #8d716a;
+    --color-outline-variant: #e1bfb8;
+    --color-inverse-surface: #23323a;
+    --color-inverse-on-surface: #e3f3fd;
+
+    /* Brand somatic palette (light) */
+    --coral-glow: #FF7E5F;
+    --serene-sky: #48CAE4;
+    --calm-periwinkle: #7C77FF;
+    --surface-cream: #FFF9F5;
+    --surface-parchment: #FCFBF9;
+    --solar-amber: #FDB833;
+    --mystic-emerald: #2EC4B6;
+
+    /* Somatic surfaces (light, contextual) */
+    --surface-cream-1: #FFF9F5;
+    --surface-parchment-1: #FCFBF9;
+
+    /* Background / text defaults */
+    --bg-light: #f4faff;
+    --bg-secondary-light: #e7f6ff;
+    --card-light: #ffffff;
+    --border-light: rgba(174, 49, 21, 0.10);
+    --text-main-light: #0e1d25;
+    --text-sec-light: #59413c;
+
+    /* Acentos principales mapeados a tokens Somatic */
+    --accent-salvia: #ae3115;
+    --accent-blue: #48CAE4;
+    --accent-slate: #0e1d25;
+    --accent-pink: #ffb4a3;
+    --accent-amber: #FDB833;
+    --accent-terracota: #FF7E5F;
+
+    /* ============================================================
+       Somatic Radiance — Tema Oscuro (Night Sanctuary)
+       Mineral warm minimalism + bioluminescent glassmorphism.
+       Warm charcoal canvas, bioluminescent accents.
+       ============================================================ */
+    --color-surface-d: #161311;
+    --color-surface-dim-d: #161311;
+    --color-surface-bright-d: #3c3836;
+    --color-surface-container-lowest-d: #100e0c;
+    --color-surface-container-low-d: #1e1b19;
+    --color-surface-container-d: #221f1d;
+    --color-surface-container-high-d: #2d2927;
+    --color-surface-container-highest-d: #383432;
+    --color-on-surface-d: #e9e1dd;
+    --color-on-surface-variant-d: #dfc0b8;
+    --color-surface-variant-d: #383432;
+
+    --color-surface-tint-d: #ffb4a1;
+    --color-primary-d: #ffb4a1;
+    --color-on-primary-d: #611300;
+    --color-primary-container-d: #ff7854;
+    --color-on-primary-container-d: #6d1700;
+    --color-inverse-primary-d: #a8391a;
+
+    --color-secondary-d: #ffc640;
+    --color-on-secondary-d: #402d00;
+    --color-secondary-container-d: #e3aa00;
+    --color-on-secondary-container-d: #5a4100;
+
+    --color-tertiary-d: #45dfa4;
+    --color-on-tertiary-d: #003825;
+    --color-tertiary-container-d: #00b781;
+    --color-on-tertiary-container-d: #00402b;
+
+    --color-error-d: #ffb4ab;
+    --color-on-error-d: #690005;
+    --color-error-container-d: #93000a;
+    --color-on-error-container-d: #ffdad6;
+
+    --color-outline-d: #a78a83;
+    --color-outline-variant-d: #58423c;
+    --color-inverse-surface-d: #e9e1dd;
+    --color-inverse-on-surface-d: #33302d;
+
+    /* Foundation stones (dark) */
+    --surface-charcoal-root: #141210;
+    --surface-charcoal-base: #1c1917;
+    --surface-stone-card: #23201d;
+    --surface-stone-elevated: #292524;
+    --surface-stone-border: #322d2a;
+    --text-ivory: #fcfbf9;
+    --text-bone: #e7e5e4;
+    --text-stone-muted: #a8a29e;
+
+    /* Bioluminescent accents (dark) */
+    --bioluminescent-coral: #ff7854;
+    --solar-amber-d: #fbbf24;
+    --mystic-emerald-d: #34d399;
+    --serene-sky-d: #38bdf8;
+
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-focus: rgba(255, 120, 84, 0.35);
+
+    /* Background / text defaults (dark) */
+    --bg-dark: #141210;
+    --bg-secondary-dark: #1c1917;
+    --card-dark: #23201d;
+    --border-dark: rgba(255, 255, 255, 0.08);
+    --text-main-dark: #fcfbf9;
+    --text-sec-dark: #a8a29e;
   }
 
   body {
@@ -54,8 +169,9 @@
     color: var(--text-main-light);
   }
 
+  /* Somatic Radiance serif — EB Garamond */
   .font-serif-display {
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'EB Garamond', 'Newsreader', Georgia, serif;
   }
 }
 
@@ -68,11 +184,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(143, 175, 154, 0.2);
+  background: rgba(255, 120, 84, 0.22);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(143, 175, 154, 0.4);
+  background: rgba(255, 120, 84, 0.4);
 }
 
 /* Safe area padding helper for PWA */

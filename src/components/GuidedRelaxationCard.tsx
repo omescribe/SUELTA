@@ -146,7 +146,7 @@ export const GuidedRelaxationCard: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-[#1F2E33] border border-[#2F3E46]/10 dark:border-white/10 rounded-3xl p-5 shadow-sm space-y-4">
+    <div className="bg-white dark:bg-[#1c1917] border border-[#0e1d25]/10 dark:border-white/10 rounded-3xl p-5 shadow-sm space-y-4">
       {/* Estilos CSS Scoped para animaciones del canvas */}
       <style>{`
         @keyframes terOndear {
@@ -184,32 +184,32 @@ export const GuidedRelaxationCard: React.FC = () => {
       {/* Header del Componente */}
       <div className="flex items-center justify-between px-1">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-[#5E8B7E]/15 text-[#5E8B7E] flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-[#FF6B4A]/15 text-[#ae3115] flex items-center justify-center">
             <Sparkles className="w-4 h-4" />
           </div>
           <div>
-            <h2 className="text-sm font-semibold text-[#2F3E46] dark:text-white tracking-tight">
+            <h2 className="text-sm font-semibold text-[#0e1d25] dark:text-[#fcfbf9] tracking-tight">
               Relajación Guiada
             </h2>
-            <p className="text-[11px] text-[#5A6D75] dark:text-white/60">
+            <p className="text-[11px] text-[#59413c] dark:text-[#fcfbf9]/60">
               Secuencia interactiva de calma y reconexión
             </p>
           </div>
         </div>
-        <span className="text-[10px] font-semibold text-[#E5A962] bg-[#E5A962]/15 px-2.5 py-0.5 rounded-full border border-[#E5A962]/20">
+        <span className="text-[10px] font-semibold text-[#FDB833] bg-[#FDB833]/15 px-2.5 py-0.5 rounded-full border border-[#FDB833]/20">
           Experiencia
         </span>
       </div>
 
       {/* Escenario de Animación Integro */}
-      <div className="relative w-full h-[360px] sm:h-[400px] rounded-2xl overflow-hidden shadow-inner select-none border border-white/5 bg-gradient-to-b from-[#0a1f14] via-[#0e2a1b] to-[#1d4a32]">
+      <div className="relative w-full h-[360px] sm:h-[400px] rounded-2xl overflow-hidden shadow-inner select-none border border-white/5 bg-gradient-to-b from-[#141210] via-[#1c1917] to-[#2d2927]">
         {/* Luces radiales de fondo */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background: `
-              radial-gradient(120% 60% at 50% 108%, rgba(232,196,120,0.35), transparent 60%),
-              radial-gradient(90% 50% at 50% -10%, rgba(120,200,160,0.18), transparent 60%)
+              radial-gradient(120% 60% at 50% 108%, rgba(255, 107, 74, 0.28), transparent 60%),
+              radial-gradient(90% 50% at 50% -10%, rgba(255, 184, 51, 0.18), transparent 60%)
             `,
           }}
         />
@@ -370,7 +370,7 @@ export const GuidedRelaxationCard: React.FC = () => {
         {/* 8. Barra de progreso inferior */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-10">
           <div
-            className="h-full bg-gradient-to-r from-[rgba(232,196,120,.4)] to-[#e8c478] transition-all duration-300"
+            className="h-full bg-gradient-to-r from-[rgba(255,107,74,.4)] to-[#FDB833] transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
           />
         </div>

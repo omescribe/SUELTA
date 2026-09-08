@@ -9,12 +9,12 @@ interface BottomNavProps {
 
 export const BottomNav: React.FC<BottomNavProps> = ({ currentView, onChangeView }) => {
   return (
-    <nav className="h-20 bg-white/95 dark:bg-[#1F2E33]/95 backdrop-blur-md border-t border-[#2F3E46]/10 dark:border-white/10 flex items-center justify-around px-4 pb-safe relative z-30 transition-colors shadow-lg">
+    <nav className="h-20 bg-[#f4faff]/95 dark:bg-[#141210]/95 backdrop-blur-lg border-t border-[#ae3115]/10 dark:border-white/10 flex items-center justify-around px-4 pb-safe relative z-30 transition-colors shadow-lg">
       {/* 1. Inicio */}
       <button
         onClick={() => onChangeView('inicio')}
         className={`flex flex-col items-center justify-center gap-1.5 py-1 px-3 rounded-xl transition-all ${
-          currentView === 'inicio' ? 'text-[#5E8B7E] font-semibold' : 'text-[#2F3E46]/60 dark:text-white/50 hover:text-[#5E8B7E]'
+          currentView === 'inicio' ? 'text-[#ae3115] dark:text-[#ff7854] font-semibold' : 'text-[#0e1d25]/60 dark:text-[#fcfbf9]/50 hover:text-[#ae3115] dark:hover:text-[#ff7854]'
         }`}
         aria-label="Inicio"
       >
@@ -26,7 +26,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentView, onChangeView 
       <button
         onClick={() => onChangeView('ejercicios')}
         className={`flex flex-col items-center justify-center gap-1.5 py-1 px-3 rounded-xl transition-all ${
-          currentView === 'ejercicios' || currentView === 'respiracion' ? 'text-[#5E8B7E] font-semibold' : 'text-[#2F3E46]/60 dark:text-white/50 hover:text-[#5E8B7E]'
+          currentView === 'ejercicios' || currentView === 'respiracion' ? 'text-[#ae3115] dark:text-[#ff7854] font-semibold' : 'text-[#0e1d25]/60 dark:text-[#fcfbf9]/50 hover:text-[#ae3115] dark:hover:text-[#ff7854]'
         }`}
         aria-label="Ejercicios"
       >
@@ -34,11 +34,11 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentView, onChangeView 
         <span className="text-[11px] font-medium tracking-tight">Ejercicios</span>
       </button>
 
-      {/* Center: "O" con "+" adentro para Comenzar Liberación */}
+      {/* Center: Soltar Aura gradient centerpiece */}
       <div className="relative -top-5 flex flex-col items-center">
         <button
           onClick={() => onChangeView('liberacion')}
-          className="w-14 h-14 rounded-full bg-[#5E8B7E] text-white flex items-center justify-center shadow-lg shadow-[#5E8B7E]/30 hover:scale-105 active:scale-95 transition-transform border-4 border-[#F1F5F4] dark:border-[#162225] ring-2 ring-[#5E8B7E]/40"
+          className="w-14 h-14 rounded-full bg-gradient-to-br from-[#FF6B4A] to-[#FDB833] text-white flex items-center justify-center shadow-[0_8px_24px_-2px_rgba(255,107,74,0.45),0_2px_6px_rgba(253,184,51,0.3)] hover:scale-105 active:scale-95 transition-transform border-4 border-[#f4faff] dark:border-[#141210] ring-2 ring-[#FF6B4A]/40"
           aria-label="Comenzar mi liberación"
           title="Comenzar mi liberación"
         >
@@ -47,14 +47,14 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentView, onChangeView 
             <Plus className="w-7 h-7 stroke-[2.8]" />
           </div>
         </button>
-        <span className="text-[10px] font-semibold text-[#5E8B7E] mt-0.5 tracking-tight">Soltar</span>
+        <span className="text-[10px] font-semibold text-[#ae3115] dark:text-[#ff7854] mt-0.5 tracking-tight">Soltar</span>
       </div>
 
       {/* 3. Descubrir */}
       <button
         onClick={() => onChangeView('descubrir')}
         className={`flex flex-col items-center justify-center gap-1.5 py-1 px-3 rounded-xl transition-all ${
-          currentView === 'descubrir' ? 'text-[#5E8B7E] font-semibold' : 'text-[#2F3E46]/60 dark:text-white/50 hover:text-[#5E8B7E]'
+          currentView === 'descubrir' ? 'text-[#ae3115] dark:text-[#ff7854] font-semibold' : 'text-[#0e1d25]/60 dark:text-[#fcfbf9]/50 hover:text-[#ae3115] dark:hover:text-[#ff7854]'
         }`}
         aria-label="Descubrir"
       >
@@ -66,7 +66,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentView, onChangeView 
       <button
         onClick={() => onChangeView('perfil')}
         className={`flex flex-col items-center justify-center gap-1.5 py-1 px-3 rounded-xl transition-all ${
-          currentView === 'perfil' ? 'text-[#5E8B7E] font-semibold' : 'text-[#2F3E46]/60 dark:text-white/50 hover:text-[#5E8B7E]'
+          currentView === 'perfil' ? 'text-[#ae3115] dark:text-[#ff7854] font-semibold' : 'text-[#0e1d25]/60 dark:text-[#fcfbf9]/50 hover:text-[#ae3115] dark:hover:text-[#ff7854]'
         }`}
         aria-label="Perfil"
       >
